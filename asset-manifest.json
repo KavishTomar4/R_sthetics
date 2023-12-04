@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e141ea1d.css",
+    "main.js": "/static/js/main.79af8762.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/fireEmoji.gif": "/static/media/fireEmoji.a9a78890d5b9fd6a6cf1.gif",
+    "static/media/rahul nutrition.jpg": "/static/media/rahul nutrition.b424e87d94dc98ddaa77.jpg",
+    "static/media/transformation_2.jpg": "/static/media/transformation_2.13e1dbfb2929a1f93096.jpg",
+    "static/media/transformation_3.jpg": "/static/media/transformation_3.823dd711487eb0f8f034.jpg",
+    "static/media/temporaryImg.jpg": "/static/media/temporaryImg.291ba3a39795ba3be457.jpg",
+    "static/media/R_Sthetics_logo_2.png": "/static/media/R_Sthetics_logo_2.f627288a58d3f2d7effa.png",
+    "static/media/Trainer_certificate.jpg": "/static/media/Trainer_certificate.86162dd10dd06bfd067a.jpg",
+    "static/media/transformation_1.jpg": "/static/media/transformation_1.c56e8b332eee71df13c6.jpg",
+    "static/media/anabolics_certificate.jpg": "/static/media/anabolics_certificate.ed0eb10e0919dd019408.jpg",
+    "static/media/running.png": "/static/media/running.2148232d3ddc26502452.png",
+    "static/media/image_1.jpg": "/static/media/image_1.d6cbac66b58711f34699.jpg",
+    "static/media/image_2.jpg": "/static/media/image_2.1e939a427423a1e70d9a.jpg",
+    "static/media/fat_person.png": "/static/media/fat_person.9c6fc83a6e7e6818af2a.png",
+    "static/media/transition.png": "/static/media/transition.e66c8306145cae0835c2.png",
+    "static/media/selected_star.png": "/static/media/selected_star.6cc68f0b820df8611cd4.png",
+    "static/media/upperMuscularBody.png": "/static/media/upperMuscularBody.d8aabb36ea5264a8f312.png",
+    "static/media/heart.png": "/static/media/heart.d5558f4c55e376d458b7.png",
+    "static/media/right.png": "/static/media/right.47443215a68d7281da84.png",
+    "static/media/left.png": "/static/media/left.9cdf7c38ddcf15b711c1.png",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.e141ea1d.css.map": "/static/css/main.e141ea1d.css.map",
+    "main.79af8762.js.map": "/static/js/main.79af8762.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e141ea1d.css",
+    "static/js/main.79af8762.js"
+  ]
+}
