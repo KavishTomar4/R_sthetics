@@ -1,0 +1,92 @@
+#transformation-slide-container{
+    background: linear-gradient(to bottom ,#2e2d2d,#1f1e1e);
+    
+}
+h3{
+    color: white;
+    margin-left: 0.5em; 
+    font-size: 2.2em;
+}
+#transformation-slide-images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.3em;
+    overflow: hidden;
+    margin-left: 27.5em;
+    margin-right: 27.5em;
+    height: 37em;
+    border: 2px solid white;
+    border-radius: 1em;
+    margin-bottom: 4em;
+    
+    
+}
+#slider-container{
+    display: flex;
+    flex-direction: column;
+   
+    
+    
+}
+@keyframes transformation-slide{
+
+    0%{ left: 37em;}
+    25%{left: 37em;}
+    50%{left: 0em;}
+    75%{left: 0em;}
+    90%{left: -37em;}
+    100%{left: -37em;}
+
+}
+#leftBtn{
+    padding-left: 2em;
+    padding-top: 10em;
+}
+#rightBtn{
+    padding-right: 2em;
+    padding-top: 10em;
+}
+.transformation-img{
+    position: relative;
+    margin-right: 0.1em;
+   
+    /*animation-name: transformation-slide;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    animation-play-state:running;
+    animation-timing-function: ease-in-out;*/
+}
+#slider-container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+@media screen and (max-width: 768px){
+    #transformation-slide-container{
+        background: linear-gradient(to bottom ,#2e2d2d,#1f1e1e);
+        padding-top: 45em;
+        font-size:0.8em;
+    }
+    #slider-container{
+        display: flex;
+        flex-direction: row;
+        
+    }
+    #transformation-slide-images{
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+
+    }
+    #leftBtn{
+        padding-left: 1em;
+        padding-top: 10em;
+    }
+    #rightBtn{
+        padding-right: 1em;
+        padding-top: 10em;
+    }
+}

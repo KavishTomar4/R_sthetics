@@ -1,0 +1,114 @@
+#price-container{
+    color: white;
+    margin-left: 31em;
+    margin-right: 31em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5em;
+}
+#prices{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#four-weeks{
+    border-right: 2px solid white;
+    width: 30vw;
+    
+       
+}
+#twelve-weeks{
+    border-right: 2px solid white;
+    width: 30vw;
+   
+     
+}
+#twenty-six-weeks{
+    /*margin-top: 2.5em;*/
+}
+
+.weeks-title{
+    margin-right: 2em;
+    margin-left: 2em;
+    font-style: 0.5em;
+}
+.perks-list{
+    margin-right: 2em;
+    margin-left: 2em;
+    
+}
+.perks{
+    margin-bottom: 1.5em;
+}
+.payment-btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2em;
+}
+.pay-btn{
+    background: #438c68;
+    color: white;
+    font-size: 1em;
+    font-weight: 800;
+    border : 10px solid #438c68;
+    border-radius: 0.1em;
+   
+}
+#one-thousand-ninty-nine, #four-thousand-ninty-nine{
+
+    margin-top: 2.5em;
+}
+#time-container{
+   text-align: center;
+   display: flex;
+   flex-direction: row;
+}
+strike{
+    color: #b5b5b5;
+}
+.emojiFire{
+    padding-top: 2em;
+}
+
+@media screen and (max-width: 768px){
+    #prices{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #price-container{
+        color: white;
+        margin-left: 1em;
+        margin-right: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5em;
+    }
+
+    #four-weeks{
+        
+        border-bottom: 2px solid white;
+        border-right: 2px solid #1f1e1e;
+        width: 85.5vw;
+        
+           
+    }
+    #twelve-weeks{
+        border-bottom: 2px solid white;
+        border-right: 2px solid #1f1e1e;
+        width: 85.5vw;
+       
+         
+    }
+    .payment-btn-container{
+        margin-bottom: 3em;
+    }
+}

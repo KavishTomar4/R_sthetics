@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;900&family=Anton&family=Karla:ital,wght@1,800&family=Outfit:wght@100;200;300;400;500;600;700;900&display=swap');
+
+#about-section{
+    
+    font-family: 'Alexandria', sans-serif;
+    color: white;
+    padding-left: 3em;
+    padding-right: 3em;
+    background: linear-gradient(to bottom , #1f1e1e, #2e2d2d);
+    padding-top: 10em;
+    
+    
+}
+.para-component{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    margin: 7em 10em;
+    text-align: center;
+   
+}
+
+p{
+    font-size: 1.5em;
+}
+#fourth-para, #fifth-para{
+    margin: 5em 5em;
+    text-align: center;
+}
+#fifth-para{
+    margin-bottom: 0;
+}
+#fifth-para p{
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px){
+
+    #about-section{
+        padding-top: 1em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+    .para-component{
+        overflow-x: scroll;
+        font-size: 0.7em;
+    }
+    .para-component img{
+        width: 130px;
+    }
+    #first-para, #second-para, #third-para{
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+    }
+    #fourth-para, #fifth-para{
+        margin: 0.1em 0.1em;
+        text-align: center;
+    }
+}
+
+
+

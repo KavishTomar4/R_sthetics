@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;900&family=Anton&family=Karla:ital,wght@1,800&family=Outfit:wght@100;200;300;400;500;600;700;900&display=swap');
+
+#introBanner{
+    background: linear-gradient(to bottom ,#1f1e1e, #2e2d2d);
+    height: 48.6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Alexandria', sans-serif;
+    /*margin-left: -5.4em;*/
+    
+}
+#left-right-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top: 10em;
+    /*font-family: 'Alexandria', sans-serif;*/
+}
+#enroll-btn{
+    background: #438c68;
+    color: white;
+    font-size: 1em;
+    font-weight: 800;
+    border : 10px solid #438c68;
+    border-radius: 0.1em;
+    margin-left: 5.5em;
+}
+#rightSide{
+    overflow: hidden;
+    width: 17.5em;
+    height: 25.5em;
+    margin-left: 9em;
+    border: 1px solid white;
+    border-radius: 2em;
+    
+    
+}
+#leftSide h3{
+    color: white; 
+    margin-left: 1.5em;
+    font-size: 3.5em
+}
+#leftSide h4{
+    color: white; 
+    margin-left: 4.5em; 
+    font-size: 1.3em;
+}
+.imageFrame{
+    position: relative;
+    
+    animation-name: slideAnimations;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    animation-play-state:running;
+    animation-timing-function: ease-in-out;
+    
+}
+.imageTransformations{
+    position: relative; 
+    animation-name: slideAnimationsTransformations;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    animation-play-state:running;
+    animation-timing-function: ease-in-out;
+    
+}
+.imageSlider{
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    
+    
+}
+#transformation-container{
+    /*display: flex;
+    flex-direction: row;*/
+    width: 27.5em;
+    height: 25.5em;
+    overflow-x: auto;
+   /* justify-content: space-between; */
+    margin-left: 15em;
+    margin-right: 25em;
+    margin-top: 5.6em;
+    margin-bottom: 19em;
+    /* border: 10px solid white;  */
+    /* padding-top: 11.7em; */
+}
+.transformation-img{
+    margin-right: 0em;
+    border-radius: 1.3em;
+    border: 1px solid white;
+    
+}
+@keyframes slideAnimations{
+
+    0%{left: -17.4em}
+    10%{left: -17.4em}
+    20%{left: 0em}
+    30%{left: 0em}
+    40%{left: -17.4em}
+    50%{left: -17.4em}
+    60%{left: 0em}
+    70%{left: 0em}
+    80%{left: -17.4em}
+    90%{left: -17.4em}
+    100%{left:-17.4em}
+
+}
+#trainer-img-1{
+    border-radius: 1em;
+    position: relative;
+    
+    
+}
+#trainer-img-2{
+    border-radius: 1em;
+    position: relative;
+}
+
+@keyframes slideAnimationsTransformations{
+
+    0%{left: -400px}
+    10%{left: -400px}
+    20%{left: -800px}
+    30%{left: -800px}
+    40%{left: -400px}
+    50%{left: -400px}
+    60%{left: 0px}
+    70%{left: 0px}
+    80%{left: -400px}
+    90%{left: -400px}
+    100%{left: -400px}
+
+}
+@media screen and (max-width: 768px){
+#left-right-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 70em;
+    margin-bottom: 14em;
+    margin-right: 5em;
+    text-align: center;
+    /*font-family: 'Alexandria', sans-serif;*/
+}
+#leftSide h3{
+    font-size: 2.8em;
+    margin-left: 2em;
+}
+#leftSide h4{
+    font-size: 1.5em;
+}
+#enroll-btn{
+    margin-bottom: 5em;
+}
+#rightSide{
+    overflow: hidden;
+    width: 17.5em;
+    height: 25.5em;
+    margin-left: 5em;
+    border: 1px solid white;
+    border-radius: 2em;
+    
+    
+}
+}
+
+

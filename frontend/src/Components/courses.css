@@ -1,0 +1,72 @@
+#course-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 3em;
+}
+#row-one, #row-two, #row-three{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+#strength-training-course, #fat-loss-course, #weight-gain-course, #endurance-course, #fat-loss-muscle-gain-course, #prep-course{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1em;
+    margin-right: 1em;
+    
+    
+}
+#fat-loss-muscle-gain-course{
+    margin-left: 15em;
+    
+}
+#prep-course{
+    margin-right: 15em;
+    
+}
+.icon{
+    margin-right: 2em;
+}
+
+@media screen and (max-width: 768px){
+    
+    #course-container{
+        margin-right: 3em;
+        margin-left:3em;
+    }
+    #row-one, #row-two, #row-three{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+    /* img{ 
+        width: 40px;
+    }*/
+    #strength-training-course, #fat-loss-course, #weight-gain-course, #endurance-course, #fat-loss-muscle-gain-course, #prep-course{
+        font-size: 0.5em;
+        width: 75.5vw;
+        height: 15vh;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 1em;
+        
+    }
+
+    #fat-loss-muscle-gain-course{
+        margin-left: 0;
+        
+    }
+    #prep-course{
+        margin-right: 0;
+        
+    }
+}
