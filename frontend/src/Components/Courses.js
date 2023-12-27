@@ -37,7 +37,7 @@ function Courses(){
 
             if(response.ok){
                 if(json.toLink === '/login'){
-                    window.location.href = '/login';
+                    window.location.href = 'https://master--kaleidoscopic-puffpuff-49f3aa.netlify.app/login';
                 }
             }
         }
