@@ -4,9 +4,11 @@ import { useEffect } from "react";
 import statescities from '../Components/statescities.json'
 import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { useHistory } from "react-router-dom";
 
 function Register(){
 
+    let history = useHistory();
     let [city, setCity] = useState([]);
     let [loading, setLoading] = useState(false);
     let override = {
@@ -67,7 +69,8 @@ function Register(){
         let json = await response.json();
 
         if(json.message === ''){
-            window.location.href = json.toLink;
+            history.replace(window.location.href)
+            history.push(json.toLink)
         }else{
             document.getElementById('error-msg').innerHTML = json.message;
         }

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import '../Components/Yourcourses.css';
 import { useEffect } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import ClipLoader from "react-spinners/ClipLoader";
 
 function Yourcourses(){
 
+    let history = useHistory();
     let [loading, setLoading] = useState(false);
     let [empty, setEmpty] = useState('');
     let override = {
@@ -29,7 +30,8 @@ function Yourcourses(){
 
             if(response.ok){
                 if(json.toLink === '/login'){
-                    window.location.href = json.toLink;
+                    history.replace(window.location.href)
+                    history.push(json.toLink)
                 }
             }
         }

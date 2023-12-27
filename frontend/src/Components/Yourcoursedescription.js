@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import '../Components/Yourcoursedescription.css'
 
 
 
 function Yourcoursedescription(){
 
+    let history = useHistory();
     let {yourcourse} = useParams()
    
     let courseNomenclature = yourcourse.split('-')
@@ -21,7 +22,8 @@ function Yourcoursedescription(){
 
             if(response.ok){
                 if(json.toLink === '/login'){
-                    window.location.href = json.toLink;
+                    history.replace(window.location.href)
+                    history.push(json.toLink)
                 }
             }
         }
