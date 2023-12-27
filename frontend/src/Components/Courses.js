@@ -9,7 +9,7 @@ import running from '../Components/running.png';
 import transition from '../Components/transition.png';
 import upperMuscularBody from '../Components/upperMuscularBody.png';
 import bodyBuilding from '../Components/BodyBuilding.png';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { hover } from "@testing-library/user-event/dist/hover";
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -17,7 +17,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 function Courses(){
 
     //strengthBtn = {background: 'linear-gradient(to bottom right, #228044, #37de74)', borderRadius: '1em'}
-
+    const history = useHistory();
     let [loading, setLoading] = useState(false);
     let override = {
         display: "block",
@@ -30,14 +30,16 @@ function Courses(){
     useEffect(()=>{
 
         setLoading(true);
-
+       
         let fetchLogin = async()=>{
             let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo');
             let json = await response.json();
 
             if(response.ok){
                 if(json.toLink === '/login'){
-                    window.location.href = 'https://master--kaleidoscopic-puffpuff-49f3aa.netlify.app/login';
+                    
+                    history.replace('/courses')
+                    history.push('/login')
                 }
             }
         }

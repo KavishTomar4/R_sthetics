@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import '../Components/login.css';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 function Login(){
 
+    let history = useHistory();
     let [loading, setLoading] = useState(false);
     let [err, setErr] = useState('');
     let override = {
@@ -29,7 +30,8 @@ function Login(){
             let json = await response.json();
 
             if(json.toLink !== ''){
-                window.location.href = json.toLink;
+                history.replace(window.location.href);
+                history.push(json.toLink)
             }
 
            
