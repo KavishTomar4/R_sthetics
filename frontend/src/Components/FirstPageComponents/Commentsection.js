@@ -15,7 +15,7 @@ function Commentsection(){
     useEffect(()=>{
 
         let fetchComments = async()=>{
-            let getComments = await fetch("/api/getcomments");
+            let getComments = await fetch("https://r-sthetics.onrender.com/api/getcomments");
             let json = await getComments.json();
             setAllFetchedComments(json.comments);
             

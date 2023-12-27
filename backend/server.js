@@ -4,7 +4,7 @@ let express = require('express');
 let mongoose = require('mongoose');
 let authRoutes = require('./Routes/auth');
 let bodyParser = require('body-parser')
-let cors = require('cors');
+let cors = require('cors')
 let app = express();
 
 app.use((req, res, next) => {
@@ -14,6 +14,7 @@ app.use((req, res, next) => {
   });
 
 app.use(express.json());
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 app.use('/api', authRoutes);

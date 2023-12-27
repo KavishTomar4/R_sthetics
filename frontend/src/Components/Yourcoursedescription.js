@@ -16,7 +16,7 @@ function Yourcoursedescription(){
 
     useEffect(()=>{
         let fetchLogin = async()=>{
-            let response = await fetch('/api/getlogininfo');
+            let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo');
             let json = await response.json();
 
             if(response.ok){
@@ -32,7 +32,7 @@ function Yourcoursedescription(){
                 coursename: courseNomenclature[0].toUpperCase(),
                 duration: courseNomenclature[1].toUpperCase() 
             }
-            let response = await fetch('/api/getpurchasetime', {
+            let response = await fetch('https://r-sthetics.onrender.com/api/getpurchasetime', {
                 method: 'POST',
                 body: JSON.stringify(courseName),
                 headers: {
@@ -65,7 +65,7 @@ function Yourcoursedescription(){
             }
 
             if(courseExpire){
-                let updateCourseStatus = await fetch("/api/updatecoursestatus", {
+                let updateCourseStatus = await fetch("https://r-sthetics.onrender.com/api/updatecoursestatus", {
                     method: "POST",
                     body: JSON.stringify({expire: true, coursename: courseNomenclature[0].toUpperCase(), duration: courseNomenclature[1].toUpperCase() }),
                     headers: {
@@ -84,7 +84,7 @@ function Yourcoursedescription(){
                 coursename: courseNomenclature[0].toUpperCase(),
                 duration: courseNomenclature[1].toUpperCase() 
             }
-            let response = await fetch('/api/getcoursestatus', {
+            let response = await fetch('https://r-sthetics.onrender.com/api/getcoursestatus', {
                 method: 'POST',
                 body: JSON.stringify(courseName),
                 headers: {
