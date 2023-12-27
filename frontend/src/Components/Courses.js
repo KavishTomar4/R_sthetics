@@ -37,7 +37,7 @@ function Courses(){
 
             if(response.ok){
                 if(json.toLink === '/login'){
-                    window.location.href = json.toLink;
+                    window.location.href = '/login';
                 }
             }
         }
