@@ -51,7 +51,7 @@ router.post('/register', async(req, res)=>{
         let a1 = await u.save();
         i = i+1;
         let token = authToken(a1._id, 30,24,60,60);
-        res.cookie('rs_client', token, {maxAge: 30*24*60*60, httpOnly: true, secure: true, sameSite: 'none'});
+        res.cookie('rs_client', token, {maxAge: 30*24*60*60, httpOnly: false, secure: true, sameSite: 'none'});
        
 
 
@@ -101,7 +101,7 @@ router.post('/login', async(req, res)=>{
         
             if(await bcrypt.compare(req.body.password, u.password)){
                 let token = authToken(u._id, 30,24,60,60);
-                res.cookie('rs_client', token, {maxAge: 30*24*60*60, httpOnly: true, secure: true, sameSite: 'none'})
+                res.cookie('rs_client', token, {maxAge: 30*24*60*60, httpOnly: false, secure: true, sameSite: 'none'})
                 res.json({toLink: '/', err: ''})
                 
             }else{
@@ -298,7 +298,7 @@ router.get('/getpersonlogin', (req, res)=>{
 
 })
 router.get('/logout', (req, res)=>{
-    res.cookie('rs_client', '', {maxAge: 1, httpOnly: true, secure: true, sameSite: 'none'});
+    res.cookie('rs_client', '', {maxAge: 1, httpOnly: false, secure: true, sameSite: 'none'});
     res.json({toLink: '/'})
 })
 
