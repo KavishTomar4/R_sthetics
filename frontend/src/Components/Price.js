@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import '../Components/price.css';
 import { useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -27,7 +27,7 @@ function Price(){
         justifyContent: "center",
         alignItems: "center"
     };
-
+    let history = useHistory();
     //let [duration, setDuration] = useState('')
 
     useEffect(()=>{
@@ -37,7 +37,8 @@ function Price(){
 
             if(response.ok){
                 if(json.toLink === '/login'){
-                    window.location.href = json.toLink;
+                    history.replace(window.location.href)
+                    history.push(json.toLink)
                 }
             }
         }
@@ -47,7 +48,8 @@ function Price(){
             let json = await response.json();
 
             if(json.toLink !== ''){
-                window.location.href = json.href;
+                history.replace(window.location.href)
+                history.push(json.toLink)
             }
             let d = new Date(Date.now() - json.reff);
             let h = (Date.now() - json.reff)/(1000*60*60);
@@ -95,7 +97,8 @@ function Price(){
                 let json = await rsp.json()
                 if(rsp.ok){
                     if(json.toLink !== ''){
-                        window.location.href = json.toLink
+                        history.replace(window.location.href)
+                        history.push(json.toLink)
                     }
                 }
             }	
@@ -113,7 +116,8 @@ function Price(){
 
             
         if(json.toLink === '/login'){
-                    window.location.href = json.toLink;
+            history.replace(window.location.href)
+            history.push(json.toLink)
         }else{
 
             let resp1 = await fetch('https://r-sthetics.onrender.com/api/getpersonlogin');
