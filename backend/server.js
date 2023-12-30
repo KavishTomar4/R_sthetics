@@ -8,15 +8,21 @@ let cors = require('cors')
 let app = express();
 
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });
+  });*/
+
+let corsOptions = {
+  origin: ['http://localhost:3000', 'https://kaleidoscopic-puffpuff-49f3aa.netlify.app'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Allow cookies to be sent
+};
 
 app.set("trust proxy", 1);
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 app.use('/api', authRoutes);
