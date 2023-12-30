@@ -106,11 +106,13 @@ function Commentsection(){
         }
 
         resp = await fetch('https://r-sthetics-api.vercel.app/api/postcomment', {
-            mode: 'no-cors',
+            mode: 'cors',
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
             }
         });
         

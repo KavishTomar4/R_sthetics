@@ -58,11 +58,13 @@ function Login(){
         }
 
         let response = await fetch('https://r-sthetics-api.vercel.app/api/login',{
-            mode: 'no-cors',
+            mode: 'cors',
             method: 'POST',
             body: JSON.stringify(loginData),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
             },
             
         });

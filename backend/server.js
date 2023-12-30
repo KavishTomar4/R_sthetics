@@ -15,12 +15,13 @@ var cookieSession = require('cookie-session')
   });*/
 
 app.set("trust proxy", 1);
-app.use(express.json());
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://r-sthetics-frontend.vercel.app'],
+  origin: ['https://r-sthetics-frontend.vercel.app'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }));
+app.use(express.json());
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 app.use('/api', authRoutes);
