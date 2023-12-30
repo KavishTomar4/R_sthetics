@@ -52,7 +52,7 @@ router.post('/register', async(req, res)=>{
         i = i+1;
         let token = authToken(a1._id, 30,24,60,60);
         //res.setHeader('Set-Cookie', ['type=ninja',  'language=javascript']); 
-        res.cookie('rs_client', token, {maxAge: 30*24*60*60, httpOnly: true, secure: true, sameSite: 'none', path: '/'});
+        res.cookie('rs_client', token, {maxAge: 30*24*60*60*1000, httpOnly: true, secure: true, sameSite: 'none', path: '/'});
        
 
 

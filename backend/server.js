@@ -10,16 +10,18 @@ let app = express();
 
 
 /*app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.setHeader('Access-Control-Allow-Origin', 'https://r-sthetics-frontend.vercel.app');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
   });*/
 
-let corsOptions = {
+/*let corsOptions = {
   origin: ['http://localhost:3000', 'https://r-sthetics-frontend.vercel.app'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Allow cookies to be sent
-};
+};*/
 
 app.set("trust proxy", 1);
 app.use(express.json());
