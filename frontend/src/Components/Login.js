@@ -58,7 +58,7 @@ function Login(){
         }
 
         let response = await fetch('https://r-sthetics-api.vercel.app/api/login',{
-            mode: 'cors',
+            mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify(loginData),
             headers: {

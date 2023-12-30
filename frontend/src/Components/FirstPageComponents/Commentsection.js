@@ -106,7 +106,7 @@ function Commentsection(){
         }
 
         resp = await fetch('https://r-sthetics-api.vercel.app/api/postcomment', {
-            mode: 'cors',
+            mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

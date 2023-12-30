@@ -59,7 +59,7 @@ function Register(){
         }
 
         let response = await fetch('https://r-sthetics-api.vercel.app/api/register',{
-            mode: 'cors',
+            mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
