@@ -27,13 +27,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 app.use('/api', authRoutes);
-app.use(cookieSession({
-  name: 'rs_client',
-  keys: [process.env.SECRET],
 
-  
-  maxAge: 30*24*60*60 
-}))
 
 
 
