@@ -26,9 +26,7 @@ function Login(){
         }, 1000)
         
         let fetchData = async()=>{
-            let response = await fetch('https://r-sthetics-api.vercel.app/api/login',{
-                mode: 'no-cors'
-            });
+            let response = await fetch('https://r-sthetics-api.vercel.app/api/login');
             let json = await response.json();
 
             if(json.toLink !== ''){
@@ -60,15 +58,11 @@ function Login(){
         }
 
         let response = await fetch('https://r-sthetics-api.vercel.app/api/login',{
-            mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify(loginData),
             headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-            },
-            
+                'Content-Type': 'application/json'
+            }
         });
 
         let json = await response.json();

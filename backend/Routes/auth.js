@@ -92,7 +92,7 @@ router.get('/login', async(req, res)=>{
 
 router.post('/login', async(req, res)=>{
 
-
+    
 
     let u = await user.findOne({email: req.body.email});
        
@@ -101,7 +101,6 @@ router.post('/login', async(req, res)=>{
         
             if(await bcrypt.compare(req.body.password, u.password)){
                 let token = authToken(u._id, 30,24,60,60);
-                //response.setHeader('Set-Cookie', ['type=ninja',  'language=javascript']);
                 res.cookie('rs_client', token, {maxAge: 30*24*60*60, httpOnly: true, secure: true, sameSite: 'none'})
                 res.json({toLink: '/', err: ''})
                 

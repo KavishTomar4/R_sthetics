@@ -59,13 +59,10 @@ function Register(){
         }
 
         let response = await fetch('https://r-sthetics-api.vercel.app/api/register',{
-            mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+                'Content-Type': 'application/json'
             }
         });
 

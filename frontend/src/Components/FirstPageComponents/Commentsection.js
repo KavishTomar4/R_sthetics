@@ -15,9 +15,7 @@ function Commentsection(){
     useEffect(()=>{
 
         let fetchComments = async()=>{
-            let getComments = await fetch("https://r-sthetics-api.vercel.app/api/getcomments", {
-                mode: 'no-cors',
-            });
+            let getComments = await fetch("https://r-sthetics-api.vercel.app/api/getcomments");
             let json = await getComments.json();
             setAllFetchedComments(json.comments);
             
@@ -79,9 +77,7 @@ function Commentsection(){
     }
 
     let postComment = async(e)=>{
-        let response = await fetch('https://r-sthetics-api.vercel.app/api/getlogininfo',{
-            mode: 'no-cors',
-        });
+        let response = await fetch('https://r-sthetics-api.vercel.app/api/getlogininfo');
         let json = await response.json();
         if(response.ok){
             if(json.toLink === '/login'){
@@ -110,13 +106,10 @@ function Commentsection(){
         }
 
         resp = await fetch('https://r-sthetics-api.vercel.app/api/postcomment', {
-            mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+                'Content-Type': 'application/json'
             }
         });
         
