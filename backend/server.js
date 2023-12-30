@@ -21,13 +21,13 @@ let corsOptions = {
 };
 
 app.set("trust proxy", 1);
-app.use(cookieSession({
+/*app.use(cookieSession({
   name: 'rs_client',
   keys: [process.env.SECRET],
 
   // Cookie Options
   maxAge: 30*24*60*60 // 24 hours
-}))
+}))*/
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
