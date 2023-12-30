@@ -15,7 +15,7 @@ function Commentsection(){
     useEffect(()=>{
 
         let fetchComments = async()=>{
-            let getComments = await fetch("https://r-sthetics-api.vercel.app/api/getcomments");
+            let getComments = await fetch("/api/getcomments");
             let json = await getComments.json();
             setAllFetchedComments(json.comments);
             
@@ -77,7 +77,7 @@ function Commentsection(){
     }
 
     let postComment = async(e)=>{
-        let response = await fetch('https://r-sthetics-api.vercel.app/api/getlogininfo');
+        let response = await fetch('/api/getlogininfo');
         let json = await response.json();
         if(response.ok){
             if(json.toLink === '/login'){
@@ -105,7 +105,7 @@ function Commentsection(){
             date : new Date().toString()
         }
 
-        resp = await fetch('https://r-sthetics-api.vercel.app/api/postcomment', {
+        resp = await fetch('/api/postcomment', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
@@ -124,7 +124,7 @@ function Commentsection(){
     
     let fetchFreshComments = async()=>{
         
-            let getComments = await fetch("https://r-sthetics-api.vercel.app/api/getcomments");
+            let getComments = await fetch("/api/getcomments");
             let json = await getComments.json();
             setAllFetchedComments(json.comments);
             

@@ -17,7 +17,7 @@ function Yourcoursedescription(){
 
     useEffect(()=>{
         let fetchLogin = async()=>{
-            let response = await fetch('https://r-sthetics-api.vercel.app/api/getlogininfo');
+            let response = await fetch('/api/getlogininfo');
             let json = await response.json();
 
             if(response.ok){
