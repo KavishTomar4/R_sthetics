@@ -6,7 +6,7 @@ let authRoutes = require('./Routes/auth');
 let bodyParser = require('body-parser')
 let cors = require('cors')
 let app = express();
-
+var cookieSession = require('cookie-session')
 
 /*app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -21,6 +21,13 @@ let corsOptions = {
 };
 
 app.set("trust proxy", 1);
+app.use(cookieSession({
+  name: 'rs_client',
+  keys: [process.env.SECRET],
+
+  // Cookie Options
+  maxAge: 30*24*60*60 // 24 hours
+}))
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
