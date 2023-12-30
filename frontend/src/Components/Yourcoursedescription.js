@@ -34,7 +34,7 @@ function Yourcoursedescription(){
                 coursename: courseNomenclature[0].toUpperCase(),
                 duration: courseNomenclature[1].toUpperCase() 
             }
-            let response = await fetch('https://r-sthetics-api.vercel.app/api/getpurchasetime', {
+            let response = await fetch('/api/getpurchasetime', {
                 method: 'POST',
                 body: JSON.stringify(courseName),
                 headers: {
@@ -67,7 +67,7 @@ function Yourcoursedescription(){
             }
 
             if(courseExpire){
-                let updateCourseStatus = await fetch("https://r-sthetics-api.vercel.app/api/updatecoursestatus", {
+                let updateCourseStatus = await fetch("/api/updatecoursestatus", {
                     method: "POST",
                     body: JSON.stringify({expire: true, coursename: courseNomenclature[0].toUpperCase(), duration: courseNomenclature[1].toUpperCase() }),
                     headers: {
@@ -86,7 +86,7 @@ function Yourcoursedescription(){
                 coursename: courseNomenclature[0].toUpperCase(),
                 duration: courseNomenclature[1].toUpperCase() 
             }
-            let response = await fetch('https://r-sthetics-api.vercel.app/api/getcoursestatus', {
+            let response = await fetch('/api/getcoursestatus', {
                 method: 'POST',
                 body: JSON.stringify(courseName),
                 headers: {
