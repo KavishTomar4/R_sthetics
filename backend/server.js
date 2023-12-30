@@ -9,13 +9,13 @@ let cookieSession = require('cookie-session')
 let app = express();
 
 
-/*app.use((req, res, next) => {
+app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://r-sthetics-frontend.vercel.app');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
-  });*/
+  });
 
 /*let corsOptions = {
   origin: ['http://localhost:3000', 'https://r-sthetics-frontend.vercel.app'],
