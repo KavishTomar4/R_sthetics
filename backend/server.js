@@ -8,11 +8,11 @@ let cors = require('cors')
 let app = express();
 var cookieSession = require('cookie-session')
 
-/*app.use((req, res, next) => {
+app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });*/
+  });
 
 app.set("trust proxy", 1);
 app.use(cors({
