@@ -25,7 +25,7 @@ function Yourcourses(){
     useEffect(()=>{
         setLoading(true);
         let fetchLogin = async()=>{
-            let response = await fetch('/api/getlogininfo');
+            let response = await fetch('https://r-sthetics-api.vercel.app/api/getlogininfo');
             let json = await response.json();
 
             if(response.ok){
@@ -39,7 +39,7 @@ function Yourcourses(){
         fetchLogin();
         
         let fetchCourses = async()=>{
-            let response = await fetch('/api/yourcourses');
+            let response = await fetch('https://r-sthetics-api.vercel.app/api/yourcourses');
             let json = await response.json();
             
             if(response.ok){

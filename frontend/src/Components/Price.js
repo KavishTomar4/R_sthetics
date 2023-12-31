@@ -32,7 +32,7 @@ function Price(){
 
     useEffect(()=>{
         let fetchLogin = async()=>{
-            let response = await fetch('/api/getlogininfo');
+            let response = await fetch('https://r-sthetics-api.vercel.app/api/getlogininfo');
             let json = await response.json();
 
             if(response.ok){
@@ -44,7 +44,7 @@ function Price(){
         }
         
         let fetchData = async()=>{
-            let response = await fetch('/api/prices');
+            let response = await fetch('https://r-sthetics-api.vercel.app/api/prices');
             let json = await response.json();
 
             if(json.toLink !== ''){
@@ -86,7 +86,7 @@ function Price(){
             order_id: data.id,
             handler: async function(response){
                 console.log(response, "34")
-                let rsp = await fetch("/api/verify",  {
+                let rsp = await fetch("https://r-sthetics-api.vercel.app/api/verify",  {
                     method: 'POST',
                     body: JSON.stringify({response: response, activity: a, duration: d}),
                     headers: {
@@ -111,16 +111,16 @@ function Price(){
     let handlePayment = async(amount, activity,duration)=>{
 
         let canbuy = true;
-         let resp = await fetch('/api/getlogininfo');
+         let resp = await fetch('https://r-sthetics-api.vercel.app/api/getlogininfo');
          let json = await resp.json();
 
             
-        if(json.toLink === '/login'){
+        if(json.toLink === 'https://r-sthetics-api.vercel.app/login'){
             history.replace(window.location.href)
             history.push(json.toLink)
         }else{
 
-            let resp1 = await fetch('/api/getpersonlogin');
+            let resp1 = await fetch('https://r-sthetics-api.vercel.app/api/getpersonlogin');
             let js = await resp1.json();
 
             for(let i = 0; i < js.id.courses.length; i++){
@@ -134,7 +134,7 @@ function Price(){
                     amount: amount,
                 }
 
-                let response = await fetch("/api/orders", {
+                let response = await fetch("https://r-sthetics-api.vercel.app/api/orders", {
                     method: 'POST',
                     body: JSON.stringify(postedData),
                     headers: {

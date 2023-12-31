@@ -58,7 +58,7 @@ function Register(){
 
         }
 
-        let response = await fetch('/api/register',{
+        let response = await fetch('https://r-sthetics-api.vercel.app/api/register',{
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
