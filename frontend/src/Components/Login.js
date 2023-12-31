@@ -97,7 +97,7 @@ function Login(){
         <div id = "login-form">
             <h3>LOGIN</h3>
             <p id = "error"></p>
-            <form action = "/api/login" method = "POST">
+            <form action = "https://r-sthetics-api.vercel.app/api/login" method = "POST">
                 <input type = "email" placeholder="E-Mail" id = "email" name = "email"/>
                 <input type = "password" placeholder="Password" id = "password" name = "password"/>
                 <input type = "submit" id = "login-btn" onClick = {postlogin} value = "LOGIN"/>
