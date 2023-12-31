@@ -84,7 +84,7 @@ router.get('/login', async(req, res)=>{
 
 
     }else{
-      
+        res.cookie("test", "test values")
         res.json({toLink: ''})
     }
 
