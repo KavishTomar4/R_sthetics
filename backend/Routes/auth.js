@@ -85,7 +85,7 @@ router.get('/login', async(req, res)=>{
 
     }else{
         //res.setHeader('Set-Cookie', "type=test")
-        res.cookie("test", "test values", {maxAge: 30*24*60*60*1000, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: '.onrender.com'})
+        res.cookie("test", "test values", {maxAge: 30*24*60*60*1000, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: 'https://rs-thetics-frontend.onrender.com'})
         res.json({toLink: ''})
     }
 
