@@ -34,7 +34,9 @@ function Navbar(){
     }, [])
 
     let logout = async(e)=>{
-        let response = await fetch('https://r-sthetics.onrender.com/api/logout');
+        let response = await fetch('https://r-sthetics.onrender.com/api/logout',{
+            credentials: 'include'
+        });
         let json = await response.json();
 
         if(response.ok){

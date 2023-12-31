@@ -63,7 +63,8 @@ function Register(){
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         });
 
         let json = await response.json();

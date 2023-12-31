@@ -25,7 +25,9 @@ function Yourcourses(){
     useEffect(()=>{
         setLoading(true);
         let fetchLogin = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo');
+            let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo',{
+                credentials: 'include'
+            });
             let json = await response.json();
 
             if(response.ok){
@@ -39,7 +41,9 @@ function Yourcourses(){
         fetchLogin();
         
         let fetchCourses = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/yourcourses');
+            let response = await fetch('https://r-sthetics.onrender.com/api/yourcourses',{
+                credentials: 'include'
+            });
             let json = await response.json();
             
             if(response.ok){

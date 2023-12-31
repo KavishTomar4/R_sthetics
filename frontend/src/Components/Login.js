@@ -26,7 +26,9 @@ function Login(){
         }, 1000)
         
         let fetchData = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/login');
+            let response = await fetch('https://r-sthetics.onrender.com/api/login',{
+                credentials: 'include'
+            });
             let json = await response.json();
 
             if(json.toLink !== ''){
@@ -62,7 +64,8 @@ function Login(){
             body: JSON.stringify(loginData),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         });
 
         let json = await response.json();

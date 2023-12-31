@@ -32,7 +32,9 @@ function Price(){
 
     useEffect(()=>{
         let fetchLogin = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo');
+            let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo',{
+                credentials: 'include'
+            });
             let json = await response.json();
 
             if(response.ok){
@@ -44,7 +46,9 @@ function Price(){
         }
         
         let fetchData = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/prices');
+            let response = await fetch('https://r-sthetics.onrender.com/api/prices',{
+                credentials: 'include'
+            });
             let json = await response.json();
 
             if(json.toLink !== ''){
@@ -91,7 +95,8 @@ function Price(){
                     body: JSON.stringify({response: response, activity: a, duration: d}),
                     headers: {
                         'Content-type': 'application/json'
-                    }
+                    },
+                    credentials: 'include'
                 })
 
                 let json = await rsp.json()
@@ -111,7 +116,9 @@ function Price(){
     let handlePayment = async(amount, activity,duration)=>{
 
         let canbuy = true;
-         let resp = await fetch('https://r-sthetics.onrender.com/api/getlogininfo');
+         let resp = await fetch('https://r-sthetics.onrender.com/api/getlogininfo',{
+            credentials: 'include'
+         });
          let json = await resp.json();
 
             
@@ -120,7 +127,9 @@ function Price(){
             history.push(json.toLink)
         }else{
 
-            let resp1 = await fetch('https://r-sthetics.onrender.com/api/getpersonlogin');
+            let resp1 = await fetch('https://r-sthetics.onrender.com/api/getpersonlogin',{
+                credentials: 'include'
+            });
             let js = await resp1.json();
 
             for(let i = 0; i < js.id.courses.length; i++){
@@ -139,7 +148,8 @@ function Price(){
                     body: JSON.stringify(postedData),
                     headers: {
                         'Content-type': 'application/json'
-                    }
+                    },
+                    credentials: 'include'
                 });
     
                 let data = await response.json();

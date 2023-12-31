@@ -17,7 +17,9 @@ function Yourcoursedescription(){
 
     useEffect(()=>{
         let fetchLogin = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo');
+            let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo',{
+                credentials: 'include'
+            });
             let json = await response.json();
 
             if(response.ok){
@@ -39,7 +41,8 @@ function Yourcoursedescription(){
                 body: JSON.stringify(courseName),
                 headers: {
                     'Content-type': 'application/json'
-                }
+                },
+                credentials: 'include'
             });
             let json = await response.json();
 
@@ -72,7 +75,8 @@ function Yourcoursedescription(){
                     body: JSON.stringify({expire: true, coursename: courseNomenclature[0].toUpperCase(), duration: courseNomenclature[1].toUpperCase() }),
                     headers: {
                         'Content-type': 'application/json'
-                    }
+                    },
+                    credentials: 'include'
                 })
 
                 let json01 = await updateCourseStatus.json();
@@ -91,7 +95,8 @@ function Yourcoursedescription(){
                 body: JSON.stringify(courseName),
                 headers: {
                     'Content-type': 'application/json'
-                }
+                },
+                credentials: 'include'
             });
 
             let json = await response.json();
