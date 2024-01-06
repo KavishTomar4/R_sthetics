@@ -25,9 +25,11 @@ let corsOptions = {
   credentials: true, // Allow cookies to be sent
 };
 
+app.use(cors(corsOptions));
+
 app.set("trust proxy", 1);
 app.use(express.json());
-app.use(cors(corsOptions));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 app.use('/api', authRoutes);
