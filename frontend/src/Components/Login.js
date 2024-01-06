@@ -71,9 +71,9 @@ function Login(){
         let json = await response.json();
 
         if(json.toLink !== ''){
-            history.replace(window.location.href);
-            history.push(json.toLink)
-            //window.location.href = json.toLink;
+            //history.replace(window.location.href);
+            //history.push(json.toLink)
+            window.location.href = json.toLink;
         }else{
             if(json.err !== ''){
                 document.getElementById("error").innerHTML = json.err;
