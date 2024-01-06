@@ -52,7 +52,7 @@ router.post('/register', async(req, res)=>{
         i = i+1;
         let token = authToken(a1._id, 30,24,60,60);
         //res.setHeader('Set-Cookie', ['type=ninja',  'language=javascript']); 
-        res.cookie('user-token', token, {maxAge: 30*24*60*60*1000, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: 'rsthetics.com'});
+        res.cookie('rs_client', token, {maxAge: 30*24*60*60*1000, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: 'rsthetics.com'});
        
 
 
@@ -85,7 +85,7 @@ router.get('/login', async(req, res)=>{
 
     }else{
         //res.setHeader('Set-Cookie', "type=test")
-        res.cookie("test", "test values", {maxAge: 30*24*60*60*1000, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: 'rsthetics.com'})
+       
         res.json({toLink: ''})
     }
 
@@ -104,7 +104,7 @@ router.post('/login', async(req, res)=>{
             if(await bcrypt.compare(req.body.password, u.password)){
                 let token = authToken(u._id, 30,24,60,60);
                 //res.setHeader('Set-Cookie', ['type=ninja',  'language=javascript']);
-                res.cookie('user-token', token, {maxAge: 30*24*60*60, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: 'rsthetics.com'})
+                res.cookie('rs_client', token, {maxAge: 30*24*60*60, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: 'rsthetics.com'})
                 res.json({toLink: '/', err: ''})
                 
             }else{
@@ -302,7 +302,7 @@ router.get('/getpersonlogin', (req, res)=>{
 })
 router.get('/logout', (req, res)=>{
     //res.setHeader('Set-Cookie', ['type=ninja',  'language=javascript']);
-    res.cookie('user-token', '', {maxAge: 1, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: 'rsthetics.com'});
+    res.cookie('rs_client', '', {maxAge: 1, httpOnly: true, secure: true, sameSite: 'none', path: '/', domain: 'rsthetics.com'});
     res.json({toLink: '/'})
 })
 
