@@ -22,6 +22,7 @@ function Navbar(){
         if(response.ok){
             console.log(json.id);
             if(json.id !== ''){
+                console.log(json.id);
                 setPersonJson(json.id);
             }
         }
