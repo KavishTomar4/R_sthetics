@@ -16,7 +16,9 @@ function Navbar(){
     useEffect(()=>{
 
     let fetchPerson = async()=>{
-        let response = await fetch('https://api.rsthetics.com/api/getpersonlogin');
+        let response = await fetch('https://api.rsthetics.com/api/getpersonlogin',{
+            credentials: 'include'
+        });
         let json = await response.json();
 
         if(response.ok){
