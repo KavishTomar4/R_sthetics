@@ -16,7 +16,7 @@ function Navbar(){
     useEffect(()=>{
 
     let fetchPerson = async()=>{
-        let response = await fetch('https://r-sthetics.onrender.com/api/getpersonlogin');
+        let response = await fetch('https://api.rsthetics.com/api/getpersonlogin');
         let json = await response.json();
 
         if(response.ok){
@@ -34,7 +34,7 @@ function Navbar(){
     }, [])
 
     let logout = async(e)=>{
-        let response = await fetch('https://r-sthetics.onrender.com/api/logout',{
+        let response = await fetch('https://api.rsthetics.com/api/logout',{
             credentials: 'include'
         });
         let json = await response.json();

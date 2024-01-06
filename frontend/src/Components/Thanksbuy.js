@@ -22,7 +22,7 @@ function Thanksbuy(){
         setLoading(true);
         let fetchCourse = async()=>{
             
-            let response = await fetch('https://r-sthetics.onrender.com/api/fetchcourseforthanks',{
+            let response = await fetch('https://api.rsthetics.com/api/fetchcourseforthanks',{
                 credentials: 'include'
             });
             let json = await response.json();

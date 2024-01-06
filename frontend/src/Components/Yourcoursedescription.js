@@ -90,7 +90,7 @@ function Yourcoursedescription(){
                 coursename: courseNomenclature[0].toUpperCase(),
                 duration: courseNomenclature[1].toUpperCase() 
             }
-            let response = await fetch('https://r-sthetics.onrender.com/api/getcoursestatus', {
+            let response = await fetch('https://api.rsthetics.com/api/getcoursestatus', {
                 method: 'POST',
                 body: JSON.stringify(courseName),
                 headers: {

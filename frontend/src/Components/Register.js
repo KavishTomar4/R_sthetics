@@ -58,7 +58,7 @@ function Register(){
 
         }
 
-        let response = await fetch('https://r-sthetics.onrender.com/api/register',{
+        let response = await fetch('https://api.rsthetics.com/api/register',{
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
@@ -91,7 +91,7 @@ function Register(){
         />:<div id = "register-form-container">
             <h3 style = {{textAlign: 'center'}}>SIGN UP</h3>
             <p  id = "error-msg" style = {{color: 'white'}}></p>
-            <form action = "https://r-sthetics.onrender.com/api/register" method = "POST">
+            <form action = "https://api.rsthetics.com/api/register" method = "POST">
                 <div id = "flnames">
                     <input type = "text" id = "fname" placeholder="First Name" name = "fname"/>
                     <input type = "text" id = "lname" placeholder="Last Name" name = "lname"/>

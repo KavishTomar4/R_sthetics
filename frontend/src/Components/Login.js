@@ -26,7 +26,7 @@ function Login(){
         }, 1000)
         
         let fetchData = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/login',{
+            let response = await fetch('https://api.rsthetics.com/api/login',{
                 credentials: 'include'
             });
             let json = await response.json();
@@ -59,7 +59,7 @@ function Login(){
             password: password
         }
 
-        let response = await fetch('https://r-sthetics.onrender.com/api/login',{
+        let response = await fetch('https://api.rsthetics.com/api/login',{
             method: 'POST',
             body: JSON.stringify(loginData),
             headers: {
@@ -100,7 +100,7 @@ function Login(){
         <div id = "login-form">
             <h3>LOGIN</h3>
             <p id = "error"></p>
-            <form action = "https://r-sthetics.onrender.com/api/login" method = "POST">
+            <form action = "https://api.rsthetics.com/api/login" method = "POST">
                 <input type = "email" placeholder="E-Mail" id = "email" name = "email"/>
                 <input type = "password" placeholder="Password" id = "password" name = "password"/>
                 <input type = "submit" id = "login-btn" onClick = {postlogin} value = "LOGIN"/>

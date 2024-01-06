@@ -32,7 +32,7 @@ function Price(){
 
     useEffect(()=>{
         let fetchLogin = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/getlogininfo',{
+            let response = await fetch('https://api.rsthetics.com/api/getlogininfo',{
                 credentials: 'include'
             });
             let json = await response.json();
@@ -46,7 +46,7 @@ function Price(){
         }
         
         let fetchData = async()=>{
-            let response = await fetch('https://r-sthetics.onrender.com/api/prices',{
+            let response = await fetch('https://api.rsthetics.com/api/prices',{
                 credentials: 'include'
             });
             let json = await response.json();
@@ -90,7 +90,7 @@ function Price(){
             order_id: data.id,
             handler: async function(response){
                 console.log(response, "34")
-                let rsp = await fetch("https://r-sthetics.onrender.com/api/verify",  {
+                let rsp = await fetch("https://api.rsthetics.com/api/verify",  {
                     method: 'POST',
                     body: JSON.stringify({response: response, activity: a, duration: d}),
                     headers: {
@@ -116,7 +116,7 @@ function Price(){
     let handlePayment = async(amount, activity,duration)=>{
 
         let canbuy = true;
-         let resp = await fetch('https://r-sthetics.onrender.com/api/getlogininfo',{
+         let resp = await fetch('https://api.rsthetics.com/api/getlogininfo',{
             credentials: 'include'
          });
          let json = await resp.json();
@@ -127,7 +127,7 @@ function Price(){
             history.push(json.toLink)
         }else{
 
-            let resp1 = await fetch('https://r-sthetics.onrender.com/api/getpersonlogin',{
+            let resp1 = await fetch('https://api.rsthetics.com/api/getpersonlogin',{
                 credentials: 'include'
             });
             let js = await resp1.json();
@@ -143,7 +143,7 @@ function Price(){
                     amount: amount,
                 }
 
-                let response = await fetch("https://r-sthetics.onrender.com/api/orders", {
+                let response = await fetch("https://api.rsthetics.com/api/orders", {
                     method: 'POST',
                     body: JSON.stringify(postedData),
                     headers: {
