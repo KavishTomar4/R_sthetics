@@ -17,7 +17,8 @@ function Navbar(){
 
     let fetchPerson = async()=>{
         let response = await fetch('https://api.rsthetics.com/api/getpersonlogin',{
-            credentials: 'include'
+            credentials: 'include',
+            mode: 'no-cors'
         });
         let json = await response.json();
 
