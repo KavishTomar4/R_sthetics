@@ -15,7 +15,9 @@ function Commentsection(){
     useEffect(()=>{
 
         let fetchComments = async()=>{
-            let getComments = await fetch("https://api.rsthetics.com/api/getcomments");
+            let getComments = await fetch("https://api.rsthetics.com/api/getcomments",{
+                credentials: 'include'
+            });
             let json = await getComments.json();
             setAllFetchedComments(json.comments);
             
@@ -77,7 +79,9 @@ function Commentsection(){
     }
 
     let postComment = async(e)=>{
-        let response = await fetch('https://api.rsthetics.com/api/getlogininfo');
+        let response = await fetch('https://api.rsthetics.com/api/getlogininfo',{
+            credentials: 'include'
+        });
         let json = await response.json();
         if(response.ok){
             if(json.toLink === '/login'){
@@ -110,7 +114,8 @@ function Commentsection(){
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         });
         
         fetchedJson = await resp.json();
@@ -124,7 +129,9 @@ function Commentsection(){
     
     let fetchFreshComments = async()=>{
         
-            let getComments = await fetch("https://api.rsthetics.com/api/getcomments");
+            let getComments = await fetch("https://api.rsthetics.com/api/getcomments",{
+                credentials: 'include'
+            });
             let json = await getComments.json();
             setAllFetchedComments(json.comments);
             
