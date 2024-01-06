@@ -289,14 +289,14 @@ router.get('/getpersonlogin', (req, res)=>{
         let u = await user.findById(tokenDecoded.id);
 
         if(u){
-          res.json({id: u})
+          res.json({id: u, msg: ''})
         }
 
     });
 
 
     }else{
-        res.send({id: ''})
+        res.send({id: '', msg: 'not logged in'})
     }
 
 })

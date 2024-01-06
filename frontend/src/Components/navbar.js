@@ -20,7 +20,7 @@ function Navbar(){
         let json = await response.json();
 
         if(response.ok){
-            console.log(json.id);
+            console.log(json.msg);
             if(json.id !== ''){
                 console.log(json.id);
                 setPersonJson(json.id);
