@@ -35,7 +35,7 @@ p{
     margin-bottom: 0;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 765px){
 
     #about-section{
         padding-top: 1em;

@@ -74,7 +74,7 @@ strike{
     padding-top: 2em;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 765px){
     #prices{
         display: flex;
         flex-direction: column;

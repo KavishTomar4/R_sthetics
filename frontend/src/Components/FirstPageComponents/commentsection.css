@@ -52,7 +52,7 @@
     background: #555;
   }
 
-  @media screen and(max-width:768px){
+  @media screen and(max-width:765px){
     #comment-section-container{
         margin-bottom: 5em;
         padding-left: 0;

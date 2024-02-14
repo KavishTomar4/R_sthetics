@@ -7,7 +7,7 @@
     color: white;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 765px){
     .course-description{
         margin-left: 1em;
         margin-right: 1em;

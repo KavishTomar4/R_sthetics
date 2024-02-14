@@ -44,7 +44,7 @@ form{
    
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 765px){
     #login-form{
         margin-left: 2em;
         margin-right: 2em;

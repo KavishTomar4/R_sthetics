@@ -2,7 +2,8 @@
 body{
     background: #1f1e1e;
     font-family: 'Alexandria', sans-serif;
-    
+    margin-right: 0 auto;
+    overflow-x:hidden;
 }
 
 
