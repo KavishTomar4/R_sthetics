@@ -17,9 +17,20 @@ let override = {
   justifyContent: "center",
   alignItems: "center"
 };
-  
+
+let override_mobile = {
+  display: "block",
+  margin: "5rem 5rem",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+
+}
+
+let [mql, setMql] = useState(window.matchMedia("(max-width: 765px)"));
   useEffect(()=>{
     setLoading(true);
+    
     setTimeout(()=>{
       setLoading(false)
     }, 1000)
@@ -28,7 +39,7 @@ let override = {
     return(
         <>
             {
-                loading === true?
+                loading === true?mql != true ?
                 <ClipLoader
                     color="#438c68"
                     loading={loading}
@@ -36,7 +47,14 @@ let override = {
                     cssOverride={override}
                     aria-label="Loading Spinner"
                     data-testid="loader"
-                />:<div className='firstPageContent'>
+                />: <ClipLoader
+                color="#438c68"
+                loading={loading}
+                size={50}
+                cssOverride={override_mobile}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+            />:<div className='firstPageContent'>
                 <IntroBanner/>
                 <Transformationslide/>
                 <About/>

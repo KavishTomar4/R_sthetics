@@ -7,6 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 function Login(){
 
     let history = useHistory();
+    let [mql, setMql] = useState(window.matchMedia("(max-width: 765px)"));
     let [loading, setLoading] = useState(false);
     let [err, setErr] = useState('');
     let override = {
@@ -16,7 +17,14 @@ function Login(){
         justifyContent: "center",
         alignItems: "center"
     };
-
+    let override_mobile = {
+        display: "block",
+        margin: "5rem 5rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      
+      }
 
     useEffect(()=>{
         
@@ -89,14 +97,22 @@ function Login(){
     return(
       <>
         {
-        loading === true?<ClipLoader
+        loading === true?mql != true ?
+        <ClipLoader
         color="#438c68"
         loading={loading}
         size={50}
         cssOverride={override}
         aria-label="Loading Spinner"
         data-testid="loader"
-    />:
+    />:<ClipLoader
+    color="#438c68"
+    loading={loading}
+    size={50}
+    cssOverride={override_mobile}
+    aria-label="Loading Spinner"
+    data-testid="loader"
+/>:
         <div id = "login-form">
             <h3>LOGIN</h3>
             <p id = "error"></p>

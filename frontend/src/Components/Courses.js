@@ -18,6 +18,7 @@ function Courses(){
 
     //strengthBtn = {background: 'linear-gradient(to bottom right, #228044, #37de74)', borderRadius: '1em'}
     const history = useHistory();
+    let [mql, setMql] = useState(window.matchMedia("(max-width: 765px)"));
     let [loading, setLoading] = useState(false);
     let override = {
         display: "block",
@@ -26,6 +27,15 @@ function Courses(){
         justifyContent: "center",
         alignItems: "center"
     };
+
+    let override_mobile = {
+        display: "block",
+        margin: "5rem 5rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      
+      }
 
     useEffect(()=>{
 
@@ -107,15 +117,22 @@ function Courses(){
     return(
         <>
         {
-        loading === true?<ClipLoader
+        loading === true?mql != true ?
+        <ClipLoader
+            color="#438c68"
+            loading={loading}
+            size={50}
+            cssOverride={override}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+        />: <ClipLoader
         color="#438c68"
         loading={loading}
         size={50}
-        cssOverride={override}
+        cssOverride={override_mobile}
         aria-label="Loading Spinner"
         data-testid="loader"
-        />
-        :<div id = "course-container">
+    />:<div id = "course-container">
             <h1>COURSES</h1>
             <div id = "row-one">
                 <Link style = {{textDecoration: 'none'}} to = "/price/strength-training-course"><div style = {{background: shouldGreenHover ? '#37de74':'linear-gradient(to bottom right, #228044, #37de74)', borderRadius: '1em'}} onMouseEnter={hoverGreenOn} onMouseLeave = {hoverGreenOff} id = "strength-training-course">

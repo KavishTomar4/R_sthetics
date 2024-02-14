@@ -30,6 +30,7 @@ function Transformationslide(){
     return(
         <div id = "transformation-slide-container">
         <h3 id = "transformation-title">TRANSFORMATIONS</h3>
+        <div id = "image-slider-container">
             <div id = "image-slider">
                 
                 {
@@ -50,6 +51,7 @@ function Transformationslide(){
             />
                 }
             </div>
+        </div>
         </div>
     );
 

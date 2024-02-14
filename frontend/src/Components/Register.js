@@ -18,6 +18,15 @@ function Register(){
         justifyContent: "center",
         alignItems: "center"
     };
+    let override_mobile = {
+        display: "block",
+        margin: "5rem 5rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      
+      }
+      let [mql, setMql] = useState(window.matchMedia("(max-width: 765px)"));
 
     useEffect(()=>{
         setLoading(true);
@@ -81,14 +90,21 @@ function Register(){
     return(
         <>
         {
-        loading === true?<ClipLoader
+        loading === true?mql!= true ?<ClipLoader
         color="#438c68"
         loading={loading}
         size={50}
         cssOverride={override}
         aria-label="Loading Spinner"
         data-testid="loader"
-        />:<div id = "register-form-container">
+        />:<ClipLoader
+        color="#438c68"
+        loading={loading}
+        size={50}
+        cssOverride={override_mobile}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+    />:<div id = "register-form-container">
             <h3 style = {{textAlign: 'center'}}>SIGN UP</h3>
             <p  id = "error-msg" style = {{color: 'white'}}></p>
             <form action = "https://api.rsthetics.com/api/register" method = "POST">

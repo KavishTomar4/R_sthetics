@@ -17,6 +17,15 @@ function Thanksbuy(){
         justifyContent: "center",
         alignItems: "center"
     };
+    let override_mobile = {
+        display: "block",
+        margin: "5rem 5rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      
+      }
+      let [mql, setMql] = useState(window.matchMedia("(max-width: 765px)"));
     useEffect(()=>{
 
         setLoading(true);
@@ -45,14 +54,21 @@ function Thanksbuy(){
     return(
         <>
         {
-        loading === true?<ClipLoader
+        loading === true?mql!= true ?<ClipLoader
         color="#438c68"
         loading={loading}
         size={50}
         cssOverride={override}
         aria-label="Loading Spinner"
         data-testid="loader"
-        />:<div>
+        />:<ClipLoader
+        color="#438c68"
+        loading={loading}
+        size={50}
+        cssOverride={override_mobile}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+    />:<div>
             <div id = "main-thanks-container">
                 <h1 id = "thanks-title">THANK YOU FOR BUYING THE COURSE</h1>
                 <h4 id = "course-name"> {course.course} ( {course.duration} ) </h4>

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import transformation_1 from '../FirstPageComponents/transformation_1.jpg';
 import transformation_2 from '../FirstPageComponents/transformation_2.jpg';
 import transformation_3 from '../FirstPageComponents/transformation_3.jpg';
+import loading_btn from '../../static/loading_btn.gif';
 
 function IntroBanner(){
 
@@ -20,7 +21,9 @@ function IntroBanner(){
     },[]);  
 
     
-
+    let buffer = ()=>{
+        document.getElementById('enroll-btn').innerHTML = `<img width = 5 src=${loading_btn}/>`
+    }
     
 
     
@@ -32,7 +35,7 @@ function IntroBanner(){
                 <div id = "leftSide">
                     <h3>HELPS TO ACHIEVE <br/>YOUR IDEAL BODY GOALS</h3>
                     <h4>Want your body to be healthy? <br/> Join our program with direction according to your body's goal</h4>
-                    <Link to = "/courses"><button id = "enroll-btn">ENROLL NOW </button></Link>
+                    <Link to = "/courses"><button onClick= {buffer} id = "enroll-btn">ENROLL NOW </button></Link>
                 </div>
                 <div id = "rightSide">
                     <div className="imageFrame">

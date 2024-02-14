@@ -16,12 +16,13 @@
 #main-container-nav{
     display: flex;
     flex-direction: row;
-    
+    justify-content: space-between;
     
 }
 
 #person-id, #login-signup-btn-container{
-    margin-left: 45em;
+    padding-right: 5em;
+    float:right;
     margin-top: 1.7em;
 }
 #person-id-mobile{
