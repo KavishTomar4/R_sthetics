@@ -96,30 +96,33 @@ function Commentsection(){
         let commentData =  document.getElementById('input-comment-field').value;
         document.getElementById('input-comment-field').value = ''
 
-        
-        document.getElementById('comment-posted-msg').innerHTML = "Comment posted successfully. Refresh your page to see.";
-        setTimeout(()=>{
-            document.getElementById('comment-posted-msg').innerHTML = '';
-        }, 4000)
+        if(commentData !== ''){
+            document.getElementById('comment-posted-msg').innerHTML = "Comment posted successfully. Refresh your page to see.";
+            setTimeout(()=>{
+                document.getElementById('comment-posted-msg').innerHTML = '';
+            }, 4000)
        
-        setShouldFix(false);
-        data = {
-            stars: starsLighted,
-            comment: commentData,
-            date : new Date().toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})
-        }
+            setShouldFix(false);
+            data = {
+                stars: starsLighted,
+                comment: commentData,
+                date : new Date().toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})
+            }
 
-        resp = await fetch('https://api.rsthetics.com/api/postcomment', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include'
-        });
+            resp = await fetch('https://api.rsthetics.com/api/postcomment', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
+            });
         
-        fetchedJson = await resp.json();
+            fetchedJson = await resp.json();
 
+        }else{
+            document.getElementById('comment-posted-msg').innerHTML = "Comment field is blank";
+        }
        
 
        fetchFreshComments();
