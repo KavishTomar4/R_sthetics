@@ -1,7 +1,7 @@
 #register-form-container{
 
-    margin-left: 30em;
-    margin-right: 30em;
+    margin-left: 5rem;
+    margin-right:5rem;
     color: white;
     
     
@@ -26,6 +26,7 @@
     width: 101%;
     margin-bottom: 3em;
     border-radius: 0.5em;
+    margin-right:1rem;
     border-top: 2px solid #1f1e1e;
     border-left: 2px solid #1f1e1e;
     border-right: 2px solid #1f1e1e;

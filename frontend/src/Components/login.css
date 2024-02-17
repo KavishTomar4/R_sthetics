@@ -1,7 +1,7 @@
 
 #login-form{
-    margin-left: 30rem;
-    margin-right: 30rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
     display: flex;
     flex-direction: column;
     color: white;
@@ -23,7 +23,7 @@ form{
 }
 #email, #password{
     background: #2e2d2d;
-    width: 105%;
+    width: 50%;
     height: 5vh;
     margin-bottom: 3em;
     border-radius: 0.5em;
