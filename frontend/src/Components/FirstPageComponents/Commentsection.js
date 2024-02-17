@@ -106,7 +106,7 @@ function Commentsection(){
         data = {
             stars: starsLighted,
             comment: commentData,
-            date : new Date().toString()
+            date : new Date().toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})
         }
 
         resp = await fetch('https://api.rsthetics.com/api/postcomment', {
