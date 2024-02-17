@@ -109,15 +109,15 @@ function Register(){
             <p  id = "error-msg" style = {{color: 'white'}}></p>
             <form action = "https://api.rsthetics.com/api/register" method = "POST">
                 <div id = "flnames">
-                    <input type = "text" id = "fname" placeholder="First Name" name = "fname"/>
-                    <input type = "text" id = "lname" placeholder="Last Name" name = "lname"/>
+                    <input type = "text" id = "fname" placeholder="First Name" name = "fname" required/>
+                    <input type = "text" id = "lname" placeholder="Last Name" name = "lname" required/>
                 </div>
-                <input type = "email" id = "email" name = "email" placeholder="E-Mail"/>
-                <input type = "password" id = "password" name = "password" placeholder="Password"/>
+                <input type = "email" id = "email" name = "email" placeholder="E-Mail" required/>
+                <input type = "password" id = "password" name = "password" placeholder="Password" required/>
                 <label for="dob" >Date Of Birth</label><br/>
-                <input type = "date" id = "dob"/>
+                <input type = "date" id = "dob" required/>
                 <label htmlFor="genders" >Gender</label><br/>
-                <select  name = "genders" id = "genders">
+                <select  name = "genders" id = "genders" required>
                     <option value = ""><i>--Select Gender--</i></option>
                     <option value = "male">Male</option>
                     <option value = "male">Female</option>
@@ -125,20 +125,20 @@ function Register(){
                 </select>
                 <label htmlFor = "height">Height</label><br/>
                 <div id = "height">
-                    <input type = "text" id = "feet" placeholder="Feet" name = "feet"/>
-                    <input type = "text" id = "inches" placeholder="Inches" name = "inches"/>
+                    <input type = "text" id = "feet" placeholder="Feet" name = "feet" required/>
+                    <input type = "text" id = "inches" placeholder="Inches" name = "inches" required/>
                 </div>
-                <input type = "text" id = "weight" placeholder="Weight(in Kg)" name = "weight"/>
+                <input type = "text" id = "weight" placeholder="Weight(in Kg)" name = "weight" required/>
                 <label htmlFor="activity-types" >Activity Type</label><br/>
-                <select  name = "activity-types" id = "activity-types">
+                <select  name = "activity-types" id = "activity-types" required>
                     <option value = ""><i>--Select Activity Type--</i></option>
                     <option value = "lightActivityType">Light Activity</option>
                     <option value = "moderateActivityType">Moderate Activity</option>
                     <option value = "proActivityType">Pro Activity</option>
                 </select>
-                <input type = "text" id = "phone-number" name = "phone-number" placeholder = "Phone Number"/>
+                <input type = "text" id = "phone-number" name = "phone-number" placeholder = "Phone Number" required/>
                 <label htmlFor = "state">Select State</label><br/>
-                <select onChange={stateSelectFn}  name = "states" id = "state">
+                <select onChange={stateSelectFn}  name = "states" id = "state" required>
                     <option value = ""><i>--Select State--</i></option>
                     {
                         statescities.map((state_city) => {
@@ -147,7 +147,7 @@ function Register(){
                     }
                 </select>
                 <label htmlFor = "cities">Select City</label><br/>
-                <select  name = "cities" id = "cities">
+                <select  name = "cities" id = "cities" required>
                     <option value = ""><i>--Select City--</i></option>
                     {
                         city.map((c) => {
@@ -155,7 +155,7 @@ function Register(){
                         })
                     }
                 </select>
-                <input onClick={sendDetails} type = "submit" id = "signUp-btn" value = "Sign Up"/>
+                <input onClick={sendDetails} type = "submit" id = "signUp-btn" value = "Sign Up" required/>
                 
 
             </form>

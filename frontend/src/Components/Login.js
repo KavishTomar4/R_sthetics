@@ -117,8 +117,8 @@ function Login(){
             <h3>LOGIN</h3>
             <p id = "error"></p>
             <form action = "https://api.rsthetics.com/api/login" method = "POST">
-                <input type = "email" placeholder="E-Mail" id = "email" name = "email"/>
-                <input type = "password" placeholder="Password" id = "password" name = "password"/>
+                <input type = "email" placeholder="E-Mail" id = "email" name = "email" required/>
+                <input type = "password" placeholder="Password" id = "password" name = "password" required/>
                 <input type = "submit" id = "login-btn" onClick = {postlogin} value = "LOGIN"/>
             </form>
             <p style = {{color: "white"}}>Or, Click here to <Link style = {{color: "#4fa87c"}}to = "/register"> Sign Up</Link></p>
