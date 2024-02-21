@@ -12,6 +12,13 @@ function Register(){
     let [city, setCity] = useState([]);
     let [loading, setLoading] = useState(false);
     let [formError, setFormError] = useState(false);
+    let [emailError, setEmailError] = useState(false);
+    let [passwordError, setPasswordError] = useState(false);
+    let [feetError, setFeetError] = useState(false);
+    let [inchesError, setInchesError] = useState(false);
+    let [weightError, setWeightError] = useState(false);
+    let [phoneError, setPhoneError] = useState(false);
+    
     let override = {
         display: "block",
         margin: "10em 45em",
@@ -51,7 +58,7 @@ function Register(){
     let sendDetails = async(e)=>{
         e.preventDefault();
         let data;
-        if(!formError){
+        if(!formError && !emailError && !passwordError && !weightError && !phoneError && !feetError && !inchesError){
             data = {
                 fname: document.getElementById('fname').value,
                 lname: document.getElementById('lname').value,
@@ -183,17 +190,18 @@ function Register(){
         if(e.target.id === "email"){
 
             if(!validateEmail(e.target.value)){
-                setFormError(true);
+                setEmailError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("email-error").innerHTML = "Invalid E-Mail";
             }else{
+                setEmailError(false);
                 e.target.style.borderTop = "2px solid #1f1e1e";
                 e.target.style.borderLeft = "2px solid #1f1e1e";
                 e.target.style.borderRight = "2px solid #1f1e1e";
                 e.target.style.borderBottom = "2px solid #8c8c8c";
                 e.target.style.background = "#2e2d2d";
                 document.getElementById("email-error").innerHTML = "";
-                setFormError(false);
+                
             }
         }
 
@@ -202,21 +210,22 @@ function Register(){
             let uppercaseRegex = /[A-Z]/g;
             let lowercaseRegex = /[a-z]/g; 
             if(!e.target.value.match(uppercaseRegex)){
-                setFormError(true);
+                setPasswordError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("password-error").innerHTML = "Must contain at least one number and one uppercase letter";
             }else if(!e.target.value.match(lowercaseRegex)){
-                setFormError(true);
+                setPasswordError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("password-error").innerHTML = "Must contain at least one lowercase letter";
             }else{
+                setPasswordError(false);
                 e.target.style.borderTop = "2px solid #1f1e1e";
                 e.target.style.borderLeft = "2px solid #1f1e1e";
                 e.target.style.borderRight = "2px solid #1f1e1e";
                 e.target.style.borderBottom = "2px solid #8c8c8c";
                 e.target.style.background = "#2e2d2d";
                 document.getElementById("password-error").innerHTML = "";
-                setFormError(false);
+                
             }
 
             
@@ -224,33 +233,35 @@ function Register(){
         }
         if(e.target.id === "feet"){
             if(e.target.value > 10 || e.target.value < 0){
-                setFormError(true);
+                setFeetError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("feet-error").innerHTML = "Invalid value";
             }else{
+                setFeetError(false);
                 e.target.style.borderTop = "2px solid #1f1e1e";
                 e.target.style.borderLeft = "2px solid #1f1e1e";
                 e.target.style.borderRight = "2px solid #1f1e1e";
                 e.target.style.borderBottom = "2px solid #8c8c8c";
                 e.target.style.background = "#2e2d2d";
                 document.getElementById("feet-error").innerHTML = "";
-                setFormError(false);
+                
             }
         }
 
         if(e.target.id === "inches"){
             if(e.target.value > 11 || e.target.value < 0){
-                setFormError(true);
+               setInchesError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("inches-error").innerHTML = "Invalid value";
             }else{
+                setInchesError(false);
                 e.target.style.borderTop = "2px solid #1f1e1e";
                 e.target.style.borderLeft = "2px solid #1f1e1e";
                 e.target.style.borderRight = "2px solid #1f1e1e";
                 e.target.style.borderBottom = "2px solid #8c8c8c";
                 e.target.style.background = "#2e2d2d";
                 document.getElementById("inches-error").innerHTML = "";
-                setFormError(false);
+                
             }
         }
 
@@ -258,33 +269,35 @@ function Register(){
         if(e.target.id === "phone-number"){
             
             if(!validatePhone(e.target.value)){
-                setFormError(true);
+                setPhoneError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("phone-number-error").innerHTML = "Invalid number";
             }else{
+                setPhoneError(false);
                 e.target.style.borderTop = "2px solid #1f1e1e";
                 e.target.style.borderLeft = "2px solid #1f1e1e";
                 e.target.style.borderRight = "2px solid #1f1e1e";
                 e.target.style.borderBottom = "2px solid #8c8c8c";
                 e.target.style.background = "#2e2d2d";
                 document.getElementById("phone-number-error").innerHTML = "";
-                setFormError(false);
+                
             }
         }
 
         if(e.target.id === "weight"){
             if(e.target.value > 500){
-                setFormError(true);
+                setWeightError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("weight-error").innerHTML = "Invalid weight";
             }else{
+                setWeightError(false);
                 e.target.style.borderTop = "2px solid #1f1e1e";
                 e.target.style.borderLeft = "2px solid #1f1e1e";
                 e.target.style.borderRight = "2px solid #1f1e1e";
                 e.target.style.borderBottom = "2px solid #8c8c8c";
                 e.target.style.background = "#2e2d2d";
                 document.getElementById("weight-error").innerHTML = "";
-                setFormError(false);
+                
             }
         }
 
