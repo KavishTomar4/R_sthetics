@@ -40,6 +40,7 @@ function Price(){
     //let [duration, setDuration] = useState('')
 
     useEffect(()=>{
+        setMql(window.matchMedia("(max-width: 765px)").matches);
         let fetchLogin = async()=>{
             let response = await fetch('https://api.rsthetics.com/api/getlogininfo',{
                 credentials: 'include'

@@ -19,7 +19,7 @@ function Thanksbuy(){
     };
     let override_mobile = {
         display: "block",
-        margin: "5rem 5rem",
+        margin: "10rem 10rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
@@ -29,6 +29,7 @@ function Thanksbuy(){
     useEffect(()=>{
 
         setLoading(true);
+        setMql(window.matchMedia("(max-width: 765px)").matches);
         let fetchCourse = async()=>{
             
             let response = await fetch('https://api.rsthetics.com/api/fetchcourseforthanks',{

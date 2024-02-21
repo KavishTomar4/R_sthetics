@@ -30,7 +30,7 @@ function Courses(){
 
     let override_mobile = {
         display: "block",
-        margin: "5rem 5rem",
+        margin: "10rem 10rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
@@ -40,7 +40,7 @@ function Courses(){
     useEffect(()=>{
 
         setLoading(true);
-       
+        setMql(window.matchMedia("(max-width: 765px)").matches);
         let fetchLogin = async()=>{
             let response = await fetch('https://api.rsthetics.com/api/getlogininfo',{
                 credentials: 'include'

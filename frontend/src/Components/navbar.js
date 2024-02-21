@@ -59,9 +59,9 @@ function Navbar(){
                                 <div id = "logged-in-person" className="dropdown">
                                     <p className="dropbtn"  style={{color: 'white'}}> Hi! {personJson.fname} {personJson.lname}  &#8595;</p>
                                      <div className="dropdown-content">
-                                        <Link to="/yourcourses">Your courses</Link>
-                                        <Link to="/courses">Buy courses</Link>
-                                        <Link onClick = {logout} to="#">Log out</Link>
+                                        <Link style = {{paddingRight: '0em', paddingLeft: '0em'}} to="/yourcourses">Your courses</Link>
+                                        <Link style = {{paddingRight: '0em', paddingLeft: '0em'}} to="/courses">Buy courses</Link>
+                                        <Link style = {{paddingRight: '0em', paddingLeft: '0em'}} onClick = {logout} to="#">Log out</Link>
                                     </div>
                                 </div>
                             </div>
@@ -69,9 +69,9 @@ function Navbar(){
                                 <div id = "logged-in-person-mobile" className="dropdown">
                                     <p className="dropbtn"  style={{color: 'white'}}>Hi! {personJson.fname}</p>
                                      <div className="dropdown-content">
-                                        <Link to="/yourcourses">Your courses</Link>
-                                        <Link to="/courses">Buy courses</Link>
-                                        <Link onClick = {logout} to="#">Log out</Link>
+                                        <Link style = {{paddingRight: '0em', paddingLeft: '0em'}} to="/yourcourses">Your courses</Link>
+                                        <Link style = {{paddingRight: '0em', paddingLeft: '0em'}} to="/courses">Buy courses</Link>
+                                        <Link style = {{paddingRight: '0em', paddingLeft: '0em'}} onClick = {logout} to="#">Log out</Link>
                                     </div>
                                 </div>
                             </div>
@@ -82,8 +82,8 @@ function Navbar(){
                     <div id = "unlogged-in-person" className="dropdown">
                                     <p className="dropbtn"  style={{color: 'white', fontSize: '1.5em', marginTop: '0.4em'}}>&#9776;</p>
                                      <div className="dropdown-content">
-                                        <Link to="/login">Login</Link>
-                                        <Link to="/register">Signup</Link>
+                                        <Link style = {{paddingRight: '0em', paddingLeft: '0em'}} to="/login">Login</Link>
+                                        <Link style = {{paddingRight: '0em', paddingLeft: '0em'}} to="/register">Signup</Link>
                                     </div>
                                 </div>
                     

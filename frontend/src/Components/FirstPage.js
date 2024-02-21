@@ -12,7 +12,7 @@ function Firstpage(){
 let [loading, setLoading] = useState(false);
 let override = {
   display: "block",
-  margin: "10rem 45rem",
+  margin: "10em 45rem",
   display: "flex",
   justifyContent: "center",
   alignItems: "center"
@@ -20,17 +20,17 @@ let override = {
 
 let override_mobile = {
   display: "block",
-  margin: "5rem 5rem",
+  margin: "10rem 10rem",
   display: "flex",
   justifyContent: "center",
   alignItems: "center"
 
 }
 
-let [mql, setMql] = useState(window.matchMedia("(max-width: 765px)"));
+let [mql, setMql] = useState(false);
   useEffect(()=>{
     setLoading(true);
-    
+    setMql(window.matchMedia("(max-width: 765px)").matches);
     setTimeout(()=>{
       setLoading(false)
     }, 1000)
@@ -39,7 +39,7 @@ let [mql, setMql] = useState(window.matchMedia("(max-width: 765px)"));
     return(
         <>
             {
-                loading === true?mql != true ?
+                loading === true?mql !== true ?
                 <ClipLoader
                     color="#438c68"
                     loading={loading}

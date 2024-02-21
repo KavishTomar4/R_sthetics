@@ -19,7 +19,7 @@ function Login(){
     };
     let override_mobile = {
         display: "block",
-        margin: "5rem 5rem",
+        margin: "10rem 10rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
@@ -29,6 +29,7 @@ function Login(){
     useEffect(()=>{
         
         setLoading(true);
+        setMql(window.matchMedia("(max-width: 765px)").matches);
         setTimeout(()=>{
             setLoading(false)
         }, 1000)

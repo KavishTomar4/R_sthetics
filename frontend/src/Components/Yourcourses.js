@@ -8,10 +8,19 @@ function Yourcourses(){
 
     let history = useHistory();
     let [loading, setLoading] = useState(false);
+    let [mql, setMql] = useState(false);
     let [empty, setEmpty] = useState('');
     let override = {
         display: "block",
         margin: "10em 45em",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    };
+
+    let override_mobile = {
+        display: "block",
+        margin: "10em 10em",
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
@@ -24,6 +33,7 @@ function Yourcourses(){
     
     useEffect(()=>{
         setLoading(true);
+        setMql(window.matchMedia("(max-width: 765px)").matches);
         let fetchLogin = async()=>{
             let response = await fetch('https://api.rsthetics.com/api/getlogininfo',{
                 credentials: 'include'
@@ -112,7 +122,7 @@ function Yourcourses(){
     return(
         <>
         {
-            loading === true?
+            loading === true? mql !== true ?
             <ClipLoader
                     color="#438c68"
                     loading={loading}
@@ -120,7 +130,16 @@ function Yourcourses(){
                     cssOverride={override}
                     aria-label="Loading Spinner"
                     data-testid="loader"
-                />:<div>
+                />:
+                <ClipLoader
+                    color="#438c68"
+                    loading={loading}
+                    size={50}
+                    cssOverride={override_mobile}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                />
+                :<div>
             <div id = "title-container">
                 <h4 id = "your-courses-title">YOUR COURSES</h4>
             </div>

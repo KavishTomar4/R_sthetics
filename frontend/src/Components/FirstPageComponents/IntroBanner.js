@@ -12,17 +12,19 @@ function IntroBanner(){
 
     let [hover, shouldHover] = useState(false);
     let [slideIndex, setSlideIndex] = useState(1);
-
+    let [mql, setMql] = useState(false);
     
 
     useEffect(()=>{
 
+        setMql(window.matchMedia("(max-width: 765px)").matches);
       
-    },[]);  
+    });  
 
     
     let buffer = ()=>{
-        document.getElementById('enroll-btn').innerHTML = `<img width = 5 src=${loading_btn}/>`
+        document.getElementById('enroll-btn').innerHTML = '';
+        document.getElementById('enroll-btn').innerHTML = `<img width = "5" src=${loading_btn}/>`;
     }
     
 
@@ -41,14 +43,15 @@ function IntroBanner(){
                     <div className="imageFrame">
                         <div className="imageSlider">
                             <div className = "imgContainer">
-                                <img id = "trainer-img-1" className = "trainerImage" src = {image_1} width = "280"/>
+                                <img id = "trainer-img-1" className = "trainerImage" src = {image_1} width = {280}/>
                             </div>
                             <div className = "imgContainer">
-                                <img id = "trainer-img-2" className = "trainerImage" src = {image_2} width = "280"/>
+                                <img id = "trainer-img-2" className = "trainerImage" src = {image_2} width = {280}/>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
             <div id = "transformation-container">
                 {/* <button style = {{background: '#1f1e1e', color: 'white', height: '10em', marginTop: '5em'}} className="w3-button w3-display-left" onClick={plusDivs(-1)}>&#10094;</button>

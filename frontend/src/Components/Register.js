@@ -11,6 +11,7 @@ function Register(){
     let history = useHistory();
     let [city, setCity] = useState([]);
     let [loading, setLoading] = useState(false);
+    let [formError, setFormError] = useState(false);
     let override = {
         display: "block",
         margin: "10em 45em",
@@ -20,7 +21,7 @@ function Register(){
     };
     let override_mobile = {
         display: "block",
-        margin: "5rem 5rem",
+        margin: "10rem 10rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
@@ -30,6 +31,7 @@ function Register(){
 
     useEffect(()=>{
         setLoading(true);
+        setMql(window.matchMedia("(max-width: 765px)").matches);
         setTimeout(()=>{
             setLoading(false)
         }, 1000)
@@ -49,13 +51,7 @@ function Register(){
     let sendDetails = async(e)=>{
         e.preventDefault();
         let data;
-        if(document.getElementById('fname').value !== '' && document.getElementById('lname').value !== '' &&
-         document.getElementById('email').value !== '' && document.getElementById('password').value !== '' &&
-         document.getElementById('dob').value !== '' && document.getElementById('genders').value !== '' &&
-         document.getElementById('feet').value !== '' && document.getElementById('inches').value &&
-         document.getElementById('weight').value !== '' && document.getElementById('activity-types').value !== '' &&
-         document.getElementById('phone-number').value !== '' && document.getElementById('state').value !== '' &&
-         document.getElementById('cities').value !== ''){
+        if(!formError){
             data = {
                 fname: document.getElementById('fname').value,
                 lname: document.getElementById('lname').value,
@@ -91,12 +87,207 @@ function Register(){
         }else{
             document.getElementById('error-msg').innerHTML = json.message;
         }
-    }else{
-
-        document.getElementById('error-msg').innerHTML = "Please fill the complete form";
     }
 
        
+
+    }
+
+    let validateEmail = (email) => {
+        return email.match(
+          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+      };
+    
+    let validatePhone = (text)=>{
+            var regx = /^[6-9]\d{9}$/ ;
+            if(regx.test(text)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    let errorCheck = (e)=>{
+
+       
+        if(e.target.value === ""){
+            e.target.style.border = "1px solid red";
+            setFormError(true);
+            if(e.target.id === "fname"){
+                document.getElementById("fname-error").innerHTML = "Please enter your first name";
+            }else if(e.target.id === "lname"){
+                document.getElementById("lname-error").innerHTML = "Please enter your last name";
+            }else if(e.target.id === "email"){
+                document.getElementById("email-error").innerHTML = "Please enter your E-Mail";
+            }else if(e.target.id === "password"){
+                document.getElementById("password-error").innerHTML = "Please enter your Password";
+            }else if(e.target.id === "dob"){
+                document.getElementById("dob-error").innerHTML = "Please enter your Date Of Birth";
+            }else if(e.target.id === "genders"){
+                document.getElementById("gender-error").innerHTML = "Please Select your Gender";
+            }else if(e.target.id === "feet"){
+                document.getElementById("feet-error").innerHTML = "Please enter your Height in feet";
+            }else if(e.target.id === "inches"){
+                document.getElementById("inches-error").innerHTML = "Please enter your Height in inches";
+            }else if(e.target.id === "weight"){
+                document.getElementById("weight-error").innerHTML = "Please enter your weight";
+            }else if(e.target.id === "activity-types"){
+                document.getElementById("activity-types-error").innerHTML = "Please Select your height";
+            }else if(e.target.id === "phone-number"){
+                document.getElementById("phone-number-error").innerHTML = "Please enter your phone number";
+            }else if(e.target.id === "state"){
+                document.getElementById("state-error").innerHTML = "Please select your state";
+            }else if(e.target.id === "cities"){
+                document.getElementById("cities-error").innerHTML = "Please select your city";
+            }
+
+        }else{
+            e.target.style.borderTop = "2px solid #1f1e1e";
+            e.target.style.borderLeft = "2px solid #1f1e1e";
+            e.target.style.borderRight = "2px solid #1f1e1e";
+            e.target.style.borderBottom = "2px solid #8c8c8c";
+            e.target.style.background = "#2e2d2d";
+            setFormError(false);
+
+            if(e.target.id === "fname"){
+                document.getElementById("fname-error").innerHTML = "";
+            }else if(e.target.id === "lname"){
+                document.getElementById("lname-error").innerHTML = "";
+            }else if(e.target.id === "email"){
+                document.getElementById("email-error").innerHTML = "";
+            }else if(e.target.id === "password"){
+                document.getElementById("password-error").innerHTML = "";
+            }else if(e.target.id === "dob"){
+                document.getElementById("dob-error").innerHTML = "";
+            }else if(e.target.id === "genders"){
+                document.getElementById("gender-error").innerHTML = "";
+            }else if(e.target.id === "feet"){
+                document.getElementById("feet-error").innerHTML = "";
+            }else if(e.target.id === "inches"){
+                document.getElementById("inches-error").innerHTML = "";
+            }else if(e.target.id === "weight"){
+                document.getElementById("weight-error").innerHTML = "";
+            }else if(e.target.id === "activity-types"){
+                document.getElementById("activity-types-error").innerHTML = "";
+            }else if(e.target.id === "phone-number"){
+                document.getElementById("phone-number-error").innerHTML = "";
+            }else if(e.target.id === "state"){
+                document.getElementById("state-error").innerHTML = "";
+            }else if(e.target.id === "cities"){
+                document.getElementById("cities-error").innerHTML = "";
+            }
+
+        }
+
+        if(e.target.id === "email"){
+
+            if(!validateEmail(e.target.value)){
+                setFormError(true);
+                e.target.style.border = "1px solid red";
+                document.getElementById("email-error").innerHTML = "Invalid E-Mail";
+            }else{
+                e.target.style.borderTop = "2px solid #1f1e1e";
+                e.target.style.borderLeft = "2px solid #1f1e1e";
+                e.target.style.borderRight = "2px solid #1f1e1e";
+                e.target.style.borderBottom = "2px solid #8c8c8c";
+                e.target.style.background = "#2e2d2d";
+                document.getElementById("email-error").innerHTML = "";
+                setFormError(false);
+            }
+        }
+
+        if(e.target.id === "password"){
+
+            let uppercaseRegex = /[A-Z]/g;
+            let lowercaseRegex = /[a-z]/g; 
+            if(!e.target.value.match(uppercaseRegex)){
+                setFormError(true);
+                e.target.style.border = "1px solid red";
+                document.getElementById("password-error").innerHTML = "Must contain at least one number and one uppercase letter";
+            }else if(!e.target.value.match(lowercaseRegex)){
+                setFormError(true);
+                e.target.style.border = "1px solid red";
+                document.getElementById("password-error").innerHTML = "Must contain at least one lowercase letter";
+            }else{
+                e.target.style.borderTop = "2px solid #1f1e1e";
+                e.target.style.borderLeft = "2px solid #1f1e1e";
+                e.target.style.borderRight = "2px solid #1f1e1e";
+                e.target.style.borderBottom = "2px solid #8c8c8c";
+                e.target.style.background = "#2e2d2d";
+                document.getElementById("password-error").innerHTML = "";
+                setFormError(false);
+            }
+
+            
+           
+        }
+        if(e.target.id === "feet"){
+            if(e.target.value > 10 || e.target.value < 0){
+                setFormError(true);
+                e.target.style.border = "1px solid red";
+                document.getElementById("feet-error").innerHTML = "Invalid value";
+            }else{
+                e.target.style.borderTop = "2px solid #1f1e1e";
+                e.target.style.borderLeft = "2px solid #1f1e1e";
+                e.target.style.borderRight = "2px solid #1f1e1e";
+                e.target.style.borderBottom = "2px solid #8c8c8c";
+                e.target.style.background = "#2e2d2d";
+                document.getElementById("feet-error").innerHTML = "";
+                setFormError(false);
+            }
+        }
+
+        if(e.target.id === "inches"){
+            if(e.target.value > 11 || e.target.value < 0){
+                setFormError(true);
+                e.target.style.border = "1px solid red";
+                document.getElementById("inches-error").innerHTML = "Invalid value";
+            }else{
+                e.target.style.borderTop = "2px solid #1f1e1e";
+                e.target.style.borderLeft = "2px solid #1f1e1e";
+                e.target.style.borderRight = "2px solid #1f1e1e";
+                e.target.style.borderBottom = "2px solid #8c8c8c";
+                e.target.style.background = "#2e2d2d";
+                document.getElementById("inches-error").innerHTML = "";
+                setFormError(false);
+            }
+        }
+
+        
+        if(e.target.id === "phone-number"){
+            
+            if(!validatePhone(e.target.value)){
+                setFormError(true);
+                e.target.style.border = "1px solid red";
+                document.getElementById("phone-number-error").innerHTML = "Invalid number";
+            }else{
+                e.target.style.borderTop = "2px solid #1f1e1e";
+                e.target.style.borderLeft = "2px solid #1f1e1e";
+                e.target.style.borderRight = "2px solid #1f1e1e";
+                e.target.style.borderBottom = "2px solid #8c8c8c";
+                e.target.style.background = "#2e2d2d";
+                document.getElementById("phone-number-error").innerHTML = "";
+                setFormError(false);
+            }
+        }
+
+        if(e.target.id === "weight"){
+            if(e.target.value > 500){
+                setFormError(true);
+                e.target.style.border = "1px solid red";
+                document.getElementById("weight-error").innerHTML = "Invalid weight";
+            }else{
+                e.target.style.borderTop = "2px solid #1f1e1e";
+                e.target.style.borderLeft = "2px solid #1f1e1e";
+                e.target.style.borderRight = "2px solid #1f1e1e";
+                e.target.style.borderBottom = "2px solid #8c8c8c";
+                e.target.style.background = "#2e2d2d";
+                document.getElementById("weight-error").innerHTML = "";
+                setFormError(false);
+            }
+        }
+
 
     }
 
@@ -122,36 +313,58 @@ function Register(){
             <p  id = "error-msg" style = {{color: 'white', textAlign:'center'}}></p>
             <form action = "https://api.rsthetics.com/api/register" method = "POST">
                 <div id = "flnames">
-                    <input type = "text" id = "fname" placeholder="First Name" name = "fname" required = {true}/>
-                    <input type = "text" id = "lname" placeholder="Last Name" name = "lname" required = {true}/>
+                    
+                    <div id = "fname-container">
+                    <input type = "text" id = "fname" placeholder="First Name" name = "fname" onBlur={errorCheck}/>
+                    <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "fname-error"></p>
+                    </div>
+                    <div id = "lname-container">
+                    <input type = "text" id = "lname" placeholder="Last Name" name = "lname" onBlur={errorCheck}/>
+                    <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "lname-error"></p>
+                    </div>
+                    
+                    
                 </div>
-                <input type = "email" id = "email" name = "email" placeholder="E-Mail" required = {true}/>
-                <input type = "password" id = "password" name = "password" placeholder="Password" required = {true}/>
+                <input type = "email" id = "email" name = "email" placeholder="E-Mail" onBlur = {errorCheck}/>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "email-error"></p>
+                <input type = "password" id = "password" name = "password" placeholder="Password" onBlur = {errorCheck}/>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "password-error"></p>
                 <label for="dob" >Date Of Birth</label><br/>
-                <input type = "date" id = "dob" required = {true}/>
+                <input type = "date" id = "dob" onBlur = {errorCheck}/>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "dob-error"></p>
                 <label htmlFor="genders" >Gender</label><br/>
-                <select  name = "genders" id = "genders" required = {true}>
+                <select  name = "genders" id = "genders" onBlur = {errorCheck}>
                     <option value = ""><i>--Select Gender--</i></option>
                     <option value = "male">Male</option>
                     <option value = "male">Female</option>
                     <option value = "male">Other</option>
                 </select>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "gender-error"></p>
                 <label htmlFor = "height">Height</label><br/>
                 <div id = "height">
-                    <input type = "text" id = "feet" placeholder="Feet" name = "feet" required = {true}/>
-                    <input type = "text" id = "inches" placeholder="Inches" name = "inches" required = {true}/>
+                    <div id = "feet-container" style = {{}}>
+                    <input type = "text" id = "feet" placeholder="Feet" name = "feet" onBlur={errorCheck}/>
+                    <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "feet-error"></p>
+                    </div>
+                    <div id = "inch-container" style = {{}}>
+                    <input type = "text" id = "inches" placeholder="Inches" name = "inches" onBlur={errorCheck}/>
+                    <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "inches-error"></p>
+                    </div>
                 </div>
-                <input type = "text" id = "weight" placeholder="Weight(in Kg)" name = "weight" required = {true}/>
+                <input type = "text" id = "weight" placeholder="Weight(in Kg)" name = "weight" onBlur={errorCheck}/>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "weight-error"></p>
                 <label htmlFor="activity-types" >Activity Type</label><br/>
-                <select  name = "activity-types" id = "activity-types" required = {true}>
+                <select  name = "activity-types" id = "activity-types" onBlur={errorCheck}>
                     <option value = ""><i>--Select Activity Type--</i></option>
                     <option value = "lightActivityType">Light Activity</option>
                     <option value = "moderateActivityType">Moderate Activity</option>
                     <option value = "proActivityType">Pro Activity</option>
                 </select>
-                <input type = "text" id = "phone-number" name = "phone-number" placeholder = "Phone Number" required = {true}/>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "activity-types-error"></p>
+                <input type = "text" id = "phone-number" name = "phone-number" placeholder = "Phone Number" onBlur={errorCheck}/>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "phone-number-error"></p>
                 <label htmlFor = "state">Select State</label><br/>
-                <select onChange={stateSelectFn}  name = "states" id = "state" required = {true}>
+                <select onChange={stateSelectFn}  name = "states" id = "state" onBlur={errorCheck}>
                     <option value = ""><i>--Select State--</i></option>
                     {
                         statescities.map((state_city) => {
@@ -159,8 +372,9 @@ function Register(){
                         })
                     }
                 </select>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "state-error"></p>
                 <label htmlFor = "cities">Select City</label><br/>
-                <select  name = "cities" id = "cities" required = {true}>
+                <select  name = "cities" id = "cities" onBlur = {errorCheck}>
                     <option value = ""><i>--Select City--</i></option>
                     {
                         city.map((c) => {
@@ -168,6 +382,7 @@ function Register(){
                         })
                     }
                 </select>
+                <p style = {{color: 'red', fontSize: '0.8rem', marginTop: '0.1rem'}} id = "cities-error"></p>
                 <input onClick={sendDetails} type = "submit" id = "signUp-btn" value = "Sign Up" required = {true}/>
                 
 

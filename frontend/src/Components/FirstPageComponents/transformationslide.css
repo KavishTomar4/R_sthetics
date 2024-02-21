@@ -41,7 +41,7 @@ h3{
 @media screen and (max-width: 765px){
     #transformation-slide-container{
         background: linear-gradient(to bottom ,#2e2d2d,#1f1e1e);
-        padding-top: 45em;
+        padding-top: 33em;
         font-size:0.8em;
     }
     #slider-container{
