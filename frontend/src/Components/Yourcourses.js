@@ -66,68 +66,63 @@ function Yourcourses(){
                     let timeinDays = (timeinhours)/24;
                     let timeinWeeks = timeinDays/7;
                     if(json.coursePurchased[i].duration === "4 WEEKS"){
-                        json.coursePurchased[i].expire = true;
-                        await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
-                                method: 'POST',
-                                body: JSON.stringify(json.coursePurchased[i]),
-                                headers: {
-                                    'Content-type': 'application/json'
-                                },
-                                credentials: 'include'
-                            });
                         if(timeinWeeks > 4){
-                            json.coursePurchased[i].expire = true;
-                            await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
+                            let clone = structuredClone(json.coursePurchased[i])
+                            clone.expire = true
+                            let response1 = await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                                 method: 'POST',
-                                body: JSON.stringify(json.coursePurchased[i]),
+                                body: JSON.stringify(clone),
                                 headers: {
                                     'Content-type': 'application/json'
                                 },
                                 credentials: 'include'
                             });
+                            
+                            if(response1.ok){
+                                let json1 = response1.json();
+                                console.log(json1);
+                            }
                         }
                     }
                     if(json.coursePurchased[i].duration === "12 WEEKS"){
                        
-                        let clone = structuredClone(json.coursePurchased[i])
-                        clone.expire = true
-                        let response1 = await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
-                            method: 'POST',
-                            body: JSON.stringify(clone),
-                            headers: {
-                                'Content-type': 'application/json'
-                            },
-                            credentials: 'include'
+                       
+                        
+                        if(timeinWeeks > 12){
+                            let clone = structuredClone(json.coursePurchased[i])
+                            clone.expire = true
+                            let response1 = await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
+                                method: 'POST',
+                                body: JSON.stringify(clone),
+                                headers: {
+                                    'Content-type': 'application/json'
+                                },
+                                credentials: 'include'
                         });
                         
                         if(response1.ok){
                             let json1 = response1.json();
                             console.log(json1);
                         }
-                        
-                        if(timeinWeeks > 12){
-                            json.coursePurchased[i].expire = true;
-                            await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
-                                method: 'POST',
-                                body: JSON.stringify(json.coursePurchased[i]),
-                                headers: {
-                                    'Content-type': 'application/json'
-                                },
-                                credentials: 'include'
-                            });
                         }
                     }
                     if(json.coursePurchased[i].duration === "26 WEEKS"){
                         if(timeinWeeks > 26){
-                            json.coursePurchased[i].expire = true;
-                            await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
+                            let clone = structuredClone(json.coursePurchased[i])
+                            clone.expire = true
+                            let response1 = await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                                 method: 'POST',
-                                body: JSON.stringify(json.coursePurchased[i]),
+                                body: JSON.stringify(clone),
                                 headers: {
                                     'Content-type': 'application/json'
                                 },
                                 credentials: 'include'
                             });
+                            
+                            if(response1.ok){
+                                let json1 = response1.json();
+                                console.log(json1);
+                            }
                         }
                     }
                 }    

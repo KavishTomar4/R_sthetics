@@ -87,7 +87,7 @@ function Yourcoursedescription(){
                     The term endurance training generally refers to training the aerobic system as opposed to the anaerobic system.</h4>
                     </div>: null
                     :
-                    <div>
+                    <div className="course-description">
                         <h3>{courseNomenclature[0].toUpperCase()}</h3>
                         <h3>Duration: {courseNomenclature[1]}</h3>
                         <h3>THIS COURSE DURATION IS EXPIRED</h3>
