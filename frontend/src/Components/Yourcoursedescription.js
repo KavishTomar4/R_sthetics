@@ -41,7 +41,7 @@ function Yourcoursedescription(){
 
             if(response.ok){
                 for(let i = 0; i < json.coursePurchased.length; i++){
-                    if(json.coursePurchased[i].course === courseNomenclature[0] && json.coursePurchased[i].duration === courseNomenclature[1]){
+                    if(json.coursePurchased[i].course === courseNomenclature[0].toUpperCase() && json.coursePurchased[i].duration === courseNomenclature[1]){
                         if(json.coursePurchased[i].expire === true){
                             setIsExpired(true);
                         }
