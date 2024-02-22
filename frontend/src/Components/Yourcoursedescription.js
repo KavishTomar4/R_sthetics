@@ -56,17 +56,20 @@ function Yourcoursedescription(){
                 
                 if(timeinWeeks > 4){
                     setCourseExpire(true);
+                    setIsExpired(true);
                 }
 
             }
             if(courseNomenclature[1].toUpperCase() === "12 WEEKS"){
                 if(timeinWeeks > 12){
                     setCourseExpire(true);
+                    setIsExpired(true);
                 }
             }
             if(courseNomenclature[1].toUpperCase() === "26 WEEKS"){
                 if(timeinWeeks > 26){
                     setCourseExpire(true);
+                    setIsExpired(true);
                 }
             }
 
@@ -105,7 +108,7 @@ function Yourcoursedescription(){
             setIsExpired(json.courseExpired);
         }
 
-        fetchLogin();
+        //fetchLogin();
 
         getCoursePurchaseTime();
 
