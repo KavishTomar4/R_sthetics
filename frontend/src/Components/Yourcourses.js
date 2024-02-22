@@ -91,7 +91,7 @@ function Yourcourses(){
                         let data = {
                             course: json.coursePurshased[i].course,
                             duration: json.corusePurchased[i].duration,
-                            expire: json.coursePurchased[i].expire
+                            expire: true
                         }
                         await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                             method: 'POST',
