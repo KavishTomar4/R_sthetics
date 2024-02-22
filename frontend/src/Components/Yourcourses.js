@@ -93,7 +93,7 @@ function Yourcourses(){
                             duration: json.corusePurchased[i]['duration'],
                             expire: true
                         }
-                        await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
+                        let response1 = await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                             method: 'POST',
                             body: JSON.stringify(data),
                             headers: {
@@ -102,6 +102,10 @@ function Yourcourses(){
                             credentials: 'include'
                         });
                         
+                        if(response1.ok){
+                            json1 = response1.json();
+                            console.log(json1);
+                        }
                         
                         if(timeinWeeks > 12){
                             json.coursePurchased[i].expire = true;
