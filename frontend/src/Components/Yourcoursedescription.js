@@ -31,63 +31,7 @@ function Yourcoursedescription(){
             }
         }
 
-        let getCoursePurchaseTime = async()=>{
-
-            let courseName = {
-                coursename: courseNomenclature[0].toUpperCase(),
-                duration: courseNomenclature[1].toUpperCase() 
-            }
-            let response = await fetch('https://r-sthetics.onrender.com/api/getpurchasetime', {
-                method: 'POST',
-                body: JSON.stringify(courseName),
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                credentials: 'include'
-            });
-            let json = await response.json();
-
-            let timeinhours = (Date.now() - json.purchasedTime)/(1000*60*60);
-            let timeinDays = (timeinhours)/24;
-            let timeinWeeks = timeinDays/7;
-            console.log(timeinWeeks);
-
-            if(courseNomenclature[1].toUpperCase() === "4 WEEKS"){
-                
-                if(timeinWeeks > 4){
-                    setCourseExpire(true);
-                    setIsExpired(true);
-                }
-
-            }
-            if(courseNomenclature[1].toUpperCase() === "12 WEEKS"){
-                if(timeinWeeks > 12){
-                    setCourseExpire(true);
-                    setIsExpired(true);
-                }
-            }
-            if(courseNomenclature[1].toUpperCase() === "26 WEEKS"){
-                if(timeinWeeks > 26){
-                    setCourseExpire(true);
-                    setIsExpired(true);
-                }
-            }
-
-            if(courseExpire){
-                let updateCourseStatus = await fetch("https://r-sthetics.onrender.com/api/updatecoursestatus", {
-                    method: "POST",
-                    body: JSON.stringify({expire: true, coursename: courseNomenclature[0].toUpperCase(), duration: courseNomenclature[1].toUpperCase() }),
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    credentials: 'include'
-                })
-
-                let json01 = await updateCourseStatus.json();
-
-            }
-
-        }
+        
 
         let getIsExpired = async()=>{
             let courseName = {
@@ -109,9 +53,6 @@ function Yourcoursedescription(){
         }
 
         //fetchLogin();
-
-        getCoursePurchaseTime();
-
         getIsExpired();
     })
 
