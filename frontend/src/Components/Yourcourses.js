@@ -88,10 +88,14 @@ function Yourcourses(){
                         }
                     }
                     if(json.coursePurchased[i].duration === "12 WEEKS"){
-                        json.coursePurchased[i].expire = true;
+                        let data = {
+                            course: json.coursePurshased[i].course,
+                            duration: json.corusePurchased[i].duration,
+                            expire: json.coursePurchased[i].expire
+                        }
                         await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                             method: 'POST',
-                            body: JSON.stringify(json.coursePurchased[i]),
+                            body: JSON.stringify(data),
                             headers: {
                                 'Content-type': 'application/json'
                             },
