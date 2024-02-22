@@ -66,6 +66,14 @@ function Yourcourses(){
                     let timeinDays = (timeinhours)/24;
                     let timeinWeeks = timeinDays/7;
                     if(json.coursePurchased[i].duration === "4 WEEKS"){
+                        await fetch('https://api.rsthetics.com/api/getpurchasetime', {
+                                method: 'POST',
+                                body: JSON.stringify(json.coursePurchased[i]),
+                                headers: {
+                                    'Content-type': 'application/json'
+                                },
+                                credentials: 'include'
+                            });
                         if(timeinWeeks > 4){
                             json.coursePurchased[i].expire = true;
                             await fetch('https://api.rsthetics.com/api/getpurchasetime', {
