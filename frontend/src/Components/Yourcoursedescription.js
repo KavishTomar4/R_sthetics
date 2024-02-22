@@ -91,7 +91,7 @@ function Yourcoursedescription(){
                         <h3>{courseNomenclature[0].toUpperCase()}</h3>
                         <h3>Duration: {courseNomenclature[1]}</h3>
                         <h3>THIS COURSE DURATION IS EXPIRED</h3>
-                        <link style = {{ fontSize: '1.5em',color: '#4fa87c'}} to = "#">Click here to Renew</link>
+                        <Link style = {{ fontSize: '1.5em',color: '#4fa87c'}} to = "#">Click here to Renew</Link>
                     </div>
             }
         </div>
