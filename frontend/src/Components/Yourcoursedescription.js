@@ -34,6 +34,7 @@ function Yourcoursedescription(){
         
 
         let getIsExpired = async()=>{
+            console.log(courseNomenclature[0].toUpperCase(), courseNomenclature[1].toUpperCase());
             let courseName = {
                 coursename: courseNomenclature[0].toUpperCase(),
                 duration: courseNomenclature[1].toUpperCase() 
