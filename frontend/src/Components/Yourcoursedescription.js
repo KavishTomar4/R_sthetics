@@ -33,29 +33,6 @@ function Yourcoursedescription(){
 
         
 
-        /*let getIsExpired = async()=>{
-            console.log(courseNomenclature[0].toUpperCase(), courseNomenclature[1].toUpperCase());
-            let courseName = {
-                coursename: courseNomenclature[0].toUpperCase(),
-                duration: courseNomenclature[1].toUpperCase() 
-            }
-            let response = await fetch('https://api.rsthetics.com/api/getcoursestatus', {
-                method: 'POST',
-                body: JSON.stringify(courseName),
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                credentials: 'include'
-            });
-
-            let json = await response.json();
-
-            setIsExpired(json.courseExpired);
-        }
-
-        //fetchLogin();
-        getIsExpired();*/
-
         let getExpired = async()=>{
             let response = await fetch('https://api.rsthetics.com/api/yourcourses',{
                 credentials: 'include'
@@ -65,12 +42,10 @@ function Yourcoursedescription(){
             if(response.ok){
                 for(let i = 0; i < json.coursePurchased.length; i++){
                     if(json.coursePurchased[i].course === courseNomenclature[0] && json.coursePurchased[i].duration === courseNomenclature[1]){
-                        if(json.coursePurchased[i].expired === true){
+                        if(json.coursePurchased[i].expire === true){
                             setIsExpired(true);
                         }
                     }
-
-
                 }
             }
         }
