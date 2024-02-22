@@ -66,7 +66,8 @@ function Yourcourses(){
                     let timeinDays = (timeinhours)/24;
                     let timeinWeeks = timeinDays/7;
                     if(json.coursePurchased[i].duration === "4 WEEKS"){
-                        await fetch('https://api.rsthetics.com/api/getpurchasetime', {
+                        json.coursePurchased[i].expire = true;
+                        await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                                 method: 'POST',
                                 body: JSON.stringify(json.coursePurchased[i]),
                                 headers: {
@@ -76,7 +77,7 @@ function Yourcourses(){
                             });
                         if(timeinWeeks > 4){
                             json.coursePurchased[i].expire = true;
-                            await fetch('https://api.rsthetics.com/api/getpurchasetime', {
+                            await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                                 method: 'POST',
                                 body: JSON.stringify(json.coursePurchased[i]),
                                 headers: {
@@ -88,7 +89,7 @@ function Yourcourses(){
                     }
                     if(json.coursePurchased[i].duration === "12 WEEKS"){
                         json.coursePurchased[i].expire = true;
-                        await fetch('https://api.rsthetics.com/api/getpurchasetime', {
+                        await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                             method: 'POST',
                             body: JSON.stringify(json.coursePurchased[i]),
                             headers: {
@@ -100,7 +101,7 @@ function Yourcourses(){
                         
                         if(timeinWeeks > 12){
                             json.coursePurchased[i].expire = true;
-                            await fetch('https://api.rsthetics.com/api/getpurchasetime', {
+                            await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                                 method: 'POST',
                                 body: JSON.stringify(json.coursePurchased[i]),
                                 headers: {
@@ -113,7 +114,7 @@ function Yourcourses(){
                     if(json.coursePurchased[i].duration === "26 WEEKS"){
                         if(timeinWeeks > 26){
                             json.coursePurchased[i].expire = true;
-                            await fetch('https://api.rsthetics.com/api/getpurchasetime', {
+                            await fetch('https://api.rsthetics.com/api/updatecoursestatus', {
                                 method: 'POST',
                                 body: JSON.stringify(json.coursePurchased[i]),
                                 headers: {
