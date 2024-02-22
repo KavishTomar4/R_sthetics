@@ -385,8 +385,8 @@ router.post("/updatecoursestatus", (req, res)=>{
         if(u){
             if(req.body.expire){
                 for(let i = 0; i < u.courses.length; i++){
-                    if(u.courses[i].course === req.body.course && u.courses[i].duration === req.body.duration){
-                        u.courses[i].expire = true;
+                    if(u.courses[i]['course'] === req.body.course && u.courses[i]['duration'] === req.body.duration){
+                        u.courses[i]['expire'] = true;
                         let u1 = await u.save();
                         res.json(u1);
                         break;
