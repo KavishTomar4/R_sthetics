@@ -141,7 +141,7 @@ function Courses(){
                 </div></Link>
                 <Link style = {{textDecoration: 'none'}} to = "/price/fat-loss-course"><div style = {{background: shouldRedHover ? '#eb3636':'linear-gradient(to bottom right, #821f1f, #eb3636)', borderRadius: '1em'}} onMouseEnter={hoverRedOn} onMouseLeave = {hoverRedOff} id = "fat-loss-course">
                     <h3 style={{marginRight: '1em', marginTop: '1.5em', marginBottom: '1.5em'}}>Fat Loss</h3>
-                    <img className = "icon" src = {transition} width = "230" />
+                    <img className = "icon" src = {transition} width = "170" />
                 </div></Link>
             </div>
             <div id = "row-two">
@@ -151,7 +151,7 @@ function Courses(){
                 </div></Link>
             <Link style = {{textDecoration: 'none'}} to = "/price/endurance-course"><div style = {{background: shouldBlueHover ? '#3192d6':'linear-gradient(to bottom right, #194c70, #3192d6)', borderRadius: '1em'}} onMouseEnter={hoverBlueOn} onMouseLeave = {hoverBlueOff} id = "endurance-course">
                     <h3 style={{marginRight: '3.4em', marginTop: '1.5em', marginBottom: '1.5em'}}>Endurance</h3>
-                    <img className = "icon" src = {running} width = "100" />
+                    <img className = "icon" src = {running} width = "80" />
                 </div></Link>
             </div>
             <div id = "row-three">

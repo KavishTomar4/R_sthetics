@@ -58,18 +58,12 @@ function Register(){
     let sendDetails = async(e)=>{
         e.preventDefault();
         let data;
-        errorCheckOnSubmit(document.getElementById('fname'));
-        errorCheckOnSubmit(document.getElementById('lname'));
-        errorCheckOnSubmit(document.getElementById('email'));
-        errorCheckOnSubmit(document.getElementById('password'));
-        errorCheckOnSubmit(document.getElementById('dob'));
-        errorCheckOnSubmit(document.getElementById('genders'));
-        errorCheckOnSubmit(document.getElementById('feet'));
-        errorCheckOnSubmit(document.getElementById('weight'));
-        errorCheckOnSubmit(document.getElementById('activity-types'));
-        errorCheckOnSubmit(document.getElementById('phone-number'));
-        errorCheckOnSubmit(document.getElementById('state'));
-        errorCheckOnSubmit(document.getElementById('cities'));
+        let tags = ['fname', 'lname', 'email', 'password', 'dob', 'genders', 'feet', 'inches', 'weight',
+                    'activity-types', 'phone-number', 'state', 'cities']
+       
+        for(let i = 0; i < tags.length; i++){
+           errorCheckOnSubmit(document.getElementById(tags[i]));
+        }
         if(!formError && !emailError && !passwordError && !weightError && !phoneError && !feetError && !inchesError){
             data = {
                 fname: document.getElementById('fname').value,
@@ -202,121 +196,10 @@ function Register(){
 
         }
 
-        if(element.id === "email"){
-
-            if(!validateEmail(element.value)){
-                setEmailError(true);
-                element.style.border = "1px solid red";
-                document.getElementById("email-error").innerHTML = "Invalid E-Mail";
-            }else{
-                setEmailError(false);
-                element.style.borderTop = "2px solid #1f1e1e";
-                element.style.borderLeft = "2px solid #1f1e1e";
-                element.style.borderRight = "2px solid #1f1e1e";
-                element.style.borderBottom = "2px solid #8c8c8c";
-                element.style.background = "#2e2d2d";
-                document.getElementById("email-error").innerHTML = "";
-                
-            }
-        }
-
-        if(element.id === "password"){
-
-            let uppercaseRegex = /[A-Z]/g;
-            let lowercaseRegex = /[a-z]/g; 
-            if(!element.value.match(uppercaseRegex)){
-                setPasswordError(true);
-                element.style.border = "1px solid red";
-                document.getElementById("password-error").innerHTML = "Must contain at least one number and one uppercase letter";
-            }else if(!element.value.match(lowercaseRegex)){
-                setPasswordError(true);
-                element.style.border = "1px solid red";
-                document.getElementById("password-error").innerHTML = "Must contain at least one lowercase letter";
-            }else{
-                setPasswordError(false);
-                element.style.borderTop = "2px solid #1f1e1e";
-                element.style.borderLeft = "2px solid #1f1e1e";
-                element.style.borderRight = "2px solid #1f1e1e";
-                element.style.borderBottom = "2px solid #8c8c8c";
-                element.style.background = "#2e2d2d";
-                document.getElementById("password-error").innerHTML = "";
-                
-            }
-
-            
-           
-        }
-        if(element.id === "feet"){
-            if(element.value > 10 || element.value < 0){
-                setFeetError(true);
-                element.style.border = "1px solid red";
-                document.getElementById("feet-error").innerHTML = "Invalid value";
-            }else{
-                setFeetError(false);
-                element.style.borderTop = "2px solid #1f1e1e";
-                element.style.borderLeft = "2px solid #1f1e1e";
-                element.style.borderRight = "2px solid #1f1e1e";
-                element.style.borderBottom = "2px solid #8c8c8c";
-                element.style.background = "#2e2d2d";
-                document.getElementById("feet-error").innerHTML = "";
-                
-            }
-        }
-
-        if(element.id === "inches"){
-            if(element.value > 11 || element.value < 0){
-               setInchesError(true);
-                element.style.border = "1px solid red";
-                document.getElementById("inches-error").innerHTML = "Invalid value";
-            }else{
-                setInchesError(false);
-                element.style.borderTop = "2px solid #1f1e1e";
-                element.style.borderLeft = "2px solid #1f1e1e";
-                element.style.borderRight = "2px solid #1f1e1e";
-                element.style.borderBottom = "2px solid #8c8c8c";
-                element.style.background = "#2e2d2d";
-                document.getElementById("inches-error").innerHTML = "";
-                
-            }
-        }
-
         
-        if(element.id === "phone-number"){
-            
-            if(!validatePhone(element.value)){
-                setPhoneError(true);
-                element.style.border = "1px solid red";
-                document.getElementById("phone-number-error").innerHTML = "Invalid number";
-            }else{
-                setPhoneError(false);
-                element.style.borderTop = "2px solid #1f1e1e";
-                element.style.borderLeft = "2px solid #1f1e1e";
-                element.style.borderRight = "2px solid #1f1e1e";
-                element.style.borderBottom = "2px solid #8c8c8c";
-                element.style.background = "#2e2d2d";
-                document.getElementById("phone-number-error").innerHTML = "";
-                
-            }
-        }
-
-        if(element.id === "weight"){
-            if(element.value > 500){
-                setWeightError(true);
-                element.style.border = "1px solid red";
-                document.getElementById("weight-error").innerHTML = "Invalid weight";
-            }else{
-                setWeightError(false);
-                element.style.borderTop = "2px solid #1f1e1e";
-                element.style.borderLeft = "2px solid #1f1e1e";
-                element.style.borderRight = "2px solid #1f1e1e";
-                element.style.borderBottom = "2px solid #8c8c8c";
-                element.style.background = "#2e2d2d";
-                document.getElementById("weight-error").innerHTML = "";
-                
-            }
-        }
 
     }
+    
     let errorCheck = (e)=>{
 
        
@@ -434,7 +317,14 @@ function Register(){
            
         }
         if(e.target.id === "feet"){
-            if(e.target.value > 10 || e.target.value < 0){
+            let isNumber = true;
+            let value = Number(e.target.value);
+            if(Math.floor(value) === value){
+                isNumber = true
+            }else{
+                isNumber = false
+            }
+            if(e.target.value > 10 || e.target.value < 0 || e.target.value === "" || !isNumber){
                 setFeetError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("feet-error").innerHTML = "Invalid value";
@@ -451,7 +341,14 @@ function Register(){
         }
 
         if(e.target.id === "inches"){
-            if(e.target.value > 11 || e.target.value < 0){
+            let isNumber = true;
+            let value = Number(e.target.value);
+            if(Math.floor(value) === value){
+                isNumber = true
+            }else{
+                isNumber = false
+            }
+            if(e.target.value > 11 || e.target.value < 0 || e.target.value === "" || isNumber){
                setInchesError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("inches-error").innerHTML = "Invalid value";
@@ -487,7 +384,14 @@ function Register(){
         }
 
         if(e.target.id === "weight"){
-            if(e.target.value > 500){
+            let isNumber = true;
+            let value = Number(e.target.value);
+            if(Math.floor(value) === value){
+                isNumber = true
+            }else{
+                isNumber = false
+            }
+            if(e.target.value > 500 || e.target.value === "" || !isNumber){
                 setWeightError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("weight-error").innerHTML = "Invalid weight";

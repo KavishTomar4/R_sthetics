@@ -61,6 +61,9 @@ function Commentsection(){
         
         let starTags = ['star-0', 'star-1', 'star-2', 'star-3', 'star-4'];
         let starComponent = e.target.id.split('-');
+        for(let i = 0; i < starTags.length; i++){
+            document.getElementById(starTags[i]).src = not_selected_star;
+        }
         if(Number(starComponent[1]) === 0){
             document.getElementById(starTags[Number(starComponent[1])]).src = selected_star;
             
@@ -151,11 +154,11 @@ function Commentsection(){
             </div>
             <div id = "your-comment-editor">
                 <div id = "review-system">
-                    <img width= "30" src = {not_selected_star} id = "star-0" onMouseEnter={hoverReviewSystem} onMouseLeave={unhoverReviewSystem} onClick={fixReviewSystem}/>
-                    <img width= "30" src = {not_selected_star} id = "star-1"  onMouseEnter={hoverReviewSystem} onMouseLeave={unhoverReviewSystem} onClick={fixReviewSystem}/>
-                    <img width= "30" src = {not_selected_star} id = "star-2"  onMouseEnter={hoverReviewSystem} onMouseLeave={unhoverReviewSystem} onClick={fixReviewSystem}/>
-                    <img width= "30" src = {not_selected_star} id = "star-3"  onMouseEnter={hoverReviewSystem} onMouseLeave={unhoverReviewSystem} onClick={fixReviewSystem}/>
-                    <img width= "30" src = {not_selected_star} id = "star-4"  onMouseEnter={hoverReviewSystem} onMouseLeave={unhoverReviewSystem} onClick={fixReviewSystem}/>
+                    <img width= "30" src = {not_selected_star} id = "star-0" onMouseEnter= {hoverReviewSystem} onMouseLeave = {unhoverReviewSystem}  onClick={fixReviewSystem}/>
+                    <img width= "30" src = {not_selected_star} id = "star-1" onMouseEnter= {hoverReviewSystem} onMouseLeave = {unhoverReviewSystem}  onClick={fixReviewSystem}/>
+                    <img width= "30" src = {not_selected_star} id = "star-2" onMouseEnter= {hoverReviewSystem} onMouseLeave = {unhoverReviewSystem}  onClick={fixReviewSystem}/>
+                    <img width= "30" src = {not_selected_star} id = "star-3" onMouseEnter= {hoverReviewSystem} onMouseLeave = {unhoverReviewSystem}  onClick={fixReviewSystem}/>
+                    <img width= "30" src = {not_selected_star} id = "star-4" onMouseEnter= {hoverReviewSystem} onMouseLeave = {unhoverReviewSystem}  onClick={fixReviewSystem}/>
                 </div>
                 <div id = "comment-write">
                     <p id = "comment-posted-msg" style = {{color: 'white'}}></p>
