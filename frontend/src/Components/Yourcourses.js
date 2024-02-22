@@ -62,7 +62,7 @@ function Yourcourses(){
                     
                 }else{
                 for(let i = 0; i < json.coursePurchased.length; i++){
-                    let timeinhours = (Date.now - json.coursePurchased[i].purchaseTime)/(1000*60*60);
+                    let timeinhours = (Date.now() - json.coursePurchased[i].purchaseTime)/(1000*60*60);
                     let timeinDays = (timeinhours)/24;
                     let timeinWeeks = timeinDays/7;
                     if(json.coursePurchased[i].duration === "4 WEEKS"){
