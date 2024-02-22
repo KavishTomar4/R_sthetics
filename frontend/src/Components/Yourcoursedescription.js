@@ -52,7 +52,7 @@ function Yourcoursedescription(){
 
         getExpired();
 
-    })
+    }, [])
 
     return(
         <div>
