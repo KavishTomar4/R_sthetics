@@ -103,7 +103,7 @@ function Yourcourses(){
                         });
                         
                         if(response1.ok){
-                            json1 = response1.json();
+                            let json1 = response1.json();
                             console.log(json1);
                         }
                         
