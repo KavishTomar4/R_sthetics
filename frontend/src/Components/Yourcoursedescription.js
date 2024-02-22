@@ -105,7 +105,7 @@ function Yourcoursedescription(){
             setIsExpired(json.courseExpired);
         }
 
-        fetchLogin();
+        //fetchLogin();
 
         getCoursePurchaseTime();
 
