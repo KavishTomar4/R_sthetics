@@ -87,6 +87,17 @@ function Yourcourses(){
                         }
                     }
                     if(json.coursePurchased[i].duration === "12 WEEKS"){
+                        json.coursePurchased[i].expire = true;
+                        await fetch('https://api.rsthetics.com/api/getpurchasetime', {
+                            method: 'POST',
+                            body: JSON.stringify(json.coursePurchased[i]),
+                            headers: {
+                                'Content-type': 'application/json'
+                            },
+                            credentials: 'include'
+                        });
+                        
+                        
                         if(timeinWeeks > 12){
                             json.coursePurchased[i].expire = true;
                             await fetch('https://api.rsthetics.com/api/getpurchasetime', {
