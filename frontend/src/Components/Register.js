@@ -11,7 +11,7 @@ function Register(){
     let history = useHistory();
     let [city, setCity] = useState([]);
     let [loading, setLoading] = useState(false);
-    let [formError, setFormError] = useState(true);
+    let [formError, setFormError] = useState(false);
     let [emailError, setEmailError] = useState(false);
     let [passwordError, setPasswordError] = useState(false);
     let [feetError, setFeetError] = useState(false);
@@ -61,9 +61,8 @@ function Register(){
         let tags = ['fname', 'lname', 'email', 'password', 'dob', 'genders', 'feet', 'inches', 'weight',
                     'activity-types', 'phone-number', 'state', 'cities']
        
-        for(let i = 0; i < tags.length; i++){
-           errorCheckOnSubmit(document.getElementById(tags[i]));
-        }
+        errorCheckOnSubmit();
+        
         if(!formError && !emailError && !passwordError && !weightError && !phoneError && !feetError && !inchesError){
             data = {
                 fname: document.getElementById('fname').value,
@@ -122,75 +121,51 @@ function Register(){
             }
         }
     
-    let errorCheckOnSubmit = (element)=>{
+    let errorCheckOnSubmit = ()=>{
 
-        if(element.value === ""){
-            element.style.border = "1px solid red";
-            setFormError(true);
-            if(element.id === "fname"){
-                document.getElementById("fname-error").innerHTML = "Please enter your first name";
-            }else if(element.id === "lname"){
-                document.getElementById("lname-error").innerHTML = "Please enter your last name";
-            }else if(element.id === "email"){
-                document.getElementById("email-error").innerHTML = "Please enter your E-Mail";
-            }else if(element.id === "password"){
-                document.getElementById("password-error").innerHTML = "Please enter your Password";
-            }else if(element.id === "dob"){
-                document.getElementById("dob-error").innerHTML = "Please enter your Date Of Birth";
-            }else if(element.id === "genders"){
-                document.getElementById("gender-error").innerHTML = "Please Select your Gender";
-            }else if(element.id === "feet"){
-                document.getElementById("feet-error").innerHTML = "Please enter your Height in feet";
-            }else if(element.id === "inches"){
-                document.getElementById("inches-error").innerHTML = "Please enter your Height in inches";
-            }else if(element.id === "weight"){
-                document.getElementById("weight-error").innerHTML = "Please enter your weight";
-            }else if(element.id === "activity-types"){
-                document.getElementById("activity-types-error").innerHTML = "Please Select your height";
-            }else if(element.id === "phone-number"){
-                document.getElementById("phone-number-error").innerHTML = "Please enter your phone number";
-            }else if(element.id === "state"){
-                document.getElementById("state-error").innerHTML = "Please select your state";
-            }else if(element.id === "cities"){
-                document.getElementById("cities-error").innerHTML = "Please select your city";
+        let tags = ['fname', 'lname', 'email', 'password', 'dob', 'genders', 'feet', 'inches', 'weight',
+                    'activity-types', 'phone-number', 'state', 'cities']
+        
+        let fname = document.getElementById(tags[0]).value;
+        let lname = document.getElementById(tags[1]).value;
+        let email = document.getElementById(tags[2]).value;
+        let password = document.getElementById(tags[3]).value;
+        let dob = document.getElementById(tags[4]).value;
+        let genders = document.getElementById(tags[5]).value;
+        let feet = document.getElementById(tags[6]).value;
+        let inches = document.getElementById(tags[7]).value;
+        let weight = document.getElementById(tags[8]).value;
+        let activityTypes = document.getElementById(tags[9]).value;
+        let phone = document.getElementById(tags[10]).value;
+        let state = document.getElementById(tags[11]).value;
+        let cities = document.getElementById(tags[12]).value;
+
+
+        if(fname === "" || lname === "" || email === "" || password === "" || dob === "" || genders === ""
+        || feet === "" || inches === "" || weight === "" || activityTypes === "" || phone === "" || state === ""
+        || cities === ""){
+
+            for(let i = 0; i < tags.length; i++){
+                document.getElementById(tags[i]).style.border = "1px solid red";
             }
+            
+            setFormError(true);
+            
             
 
         }else{
-            element.style.borderTop = "2px solid #1f1e1e";
-            element.style.borderLeft = "2px solid #1f1e1e";
-            element.style.borderRight = "2px solid #1f1e1e";
-            element.style.borderBottom = "2px solid #8c8c8c";
-            element.style.background = "#2e2d2d";
+
+            for(let i = 0; i < tags.length; i++){
+                document.getElementById(tags[i]).style.borderTop = "2px solid #1f1e1e";
+                document.getElementById(tags[i]).style.borderLeft = "2px solid #1f1e1e";
+                document.getElementById(tags[i]).style.borderRight = "2px solid #1f1e1e";
+                document.getElementById(tags[i]).style.borderBottom = "2px solid #8c8c8c";
+                document.getElementById(tags[i]).style.background = "#2e2d2d";
+            }
+           
             setFormError(false);
 
-            if(element.id === "fname"){
-                document.getElementById("fname-error").innerHTML = "";
-            }else if(element.id === "lname"){
-                document.getElementById("lname-error").innerHTML = "";
-            }else if(element.id === "email"){
-                document.getElementById("email-error").innerHTML = "";
-            }else if(element.id === "password"){
-                document.getElementById("password-error").innerHTML ="";
-            }else if(element.id === "dob"){
-                document.getElementById("dob-error").innerHTML = "";
-            }else if(element.id === "genders"){
-                document.getElementById("gender-error").innerHTML = "";
-            }else if(element.id === "feet"){
-                document.getElementById("feet-error").innerHTML = "";
-            }else if(element.id === "inches"){
-                document.getElementById("inches-error").innerHTML = "";
-            }else if(element.id === "weight"){
-                document.getElementById("weight-error").innerHTML = "";
-            }else if(element.id === "activity-types"){
-                document.getElementById("activity-types-error").innerHTML = "";
-            }else if(element.id === "phone-number"){
-                document.getElementById("phone-number-error").innerHTML =  "";
-            }else if(element.id === "state"){
-                document.getElementById("state-error").innerHTML = "";
-            }else if(element.id === "cities"){
-                document.getElementById("cities-error").innerHTML = "";
-            }
+            
 
             
 
