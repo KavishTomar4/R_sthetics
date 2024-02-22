@@ -61,9 +61,9 @@ function Register(){
         let tags = ['fname', 'lname', 'email', 'password', 'dob', 'genders', 'feet', 'inches', 'weight',
                     'activity-types', 'phone-number', 'state', 'cities']
        
-        errorCheckOnSubmit();
         
-        if(!formError && !emailError && !passwordError && !weightError && !phoneError && !feetError && !inchesError){
+        
+        if(!formError && !emailError && !passwordError && !weightError && !phoneError && !feetError && !inchesError && !errorCheckOnSubmit()){
             data = {
                 fname: document.getElementById('fname').value,
                 lname: document.getElementById('lname').value,
@@ -149,7 +149,7 @@ function Register(){
                 document.getElementById(tags[i]).style.border = "1px solid red";
             }
             
-            setFormError(true);
+            return true;
             
             
 
@@ -163,7 +163,7 @@ function Register(){
                 document.getElementById(tags[i]).style.background = "#2e2d2d";
             }
            
-            setFormError(false);
+            return false;
 
             
 
