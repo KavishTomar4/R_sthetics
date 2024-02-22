@@ -24,7 +24,7 @@ function Yourcoursedescription(){
             let json = await response.json();
 
             if(response.ok){
-                if(json.toLink === '/login'){
+                if(json.toLink !== ''){
                     history.replace(window.location.href)
                     history.push(json.toLink)
                 }
@@ -105,7 +105,7 @@ function Yourcoursedescription(){
             setIsExpired(json.courseExpired);
         }
 
-        //fetchLogin();
+        fetchLogin();
 
         getCoursePurchaseTime();
 
