@@ -323,7 +323,7 @@ function Register(){
             }else{
                 isNumber = false
             }
-            if(e.target.value > 11 || e.target.value < 0 || e.target.value === "" || isNumber){
+            if(e.target.value > 11 || e.target.value < 0 || e.target.value === "" || !isNumber){
                setInchesError(true);
                 e.target.style.border = "1px solid red";
                 document.getElementById("inches-error").innerHTML = "Invalid value";
