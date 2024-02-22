@@ -11,7 +11,7 @@ function Register(){
     let history = useHistory();
     let [city, setCity] = useState([]);
     let [loading, setLoading] = useState(false);
-    let [formError, setFormError] = useState(false);
+    let [formError, setFormError] = useState(true);
     let [emailError, setEmailError] = useState(false);
     let [passwordError, setPasswordError] = useState(false);
     let [feetError, setFeetError] = useState(false);
